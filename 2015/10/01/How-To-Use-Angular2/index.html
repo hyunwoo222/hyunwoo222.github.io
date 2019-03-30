@@ -1,0 +1,720 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head><meta name="generator" content="Hexo 3.8.0">
+  
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5">
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1">
+
+
+    <meta name="description" content="How To ...">
+
+
+
+  <meta name="keywords" content="Angular2,">
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1">
+
+
+<meta name="description" content="How to Use AngularJS2简介 用 Angular 扩展语法编写 HTML 模板， 用组件类管理这些模板，用服务添加应用逻辑， 用模块打包发布组件与服务。然后，我们通过引导根模块来启动该应用。 Angular 在浏览器中接管、展现应用的内容，并根据我们提供的操作指令响应用户的交互。  模块 (module) 组件 (component) 模板 (template) 元数据 (met">
+<meta name="keywords" content="Angular2">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How To Use Angular2">
+<meta property="og:url" content="http://www.hanyuse.com/2015/10/01/How-To-Use-Angular2/index.html">
+<meta property="og:site_name" content="How To ...">
+<meta property="og:description" content="How to Use AngularJS2简介 用 Angular 扩展语法编写 HTML 模板， 用组件类管理这些模板，用服务添加应用逻辑， 用模块打包发布组件与服务。然后，我们通过引导根模块来启动该应用。 Angular 在浏览器中接管、展现应用的内容，并根据我们提供的操作指令响应用户的交互。  模块 (module) 组件 (component) 模板 (template) 元数据 (met">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-03-30T14:08:20.267Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="How To Use Angular2">
+<meta name="twitter:description" content="How to Use AngularJS2简介 用 Angular 扩展语法编写 HTML 模板， 用组件类管理这些模板，用服务添加应用逻辑， 用模块打包发布组件与服务。然后，我们通过引导根模块来启动该应用。 Angular 在浏览器中接管、展现应用的内容，并根据我们提供的操作指令响应用户的交互。  模块 (module) 组件 (component) 模板 (template) 元数据 (met">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'post'
+  };
+</script>
+
+  <title> How To Use Angular2 | How To ... </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">How To ...</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br>
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            <i class="menu-item-icon icon-next-categories"></i> <br>
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            <i class="menu-item-icon icon-next-about"></i> <br>
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br>
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-next-tags"></i> <br>
+            标签
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              How To Use Angular2
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-10-01T10:14:22+08:00" content="2015-10-01">
+            2015-10-01
+          </time>
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/Java-Web/" itemprop="url" rel="index">
+                  <span itemprop="name">Java Web</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><h1 id="How-to-Use-AngularJS2"><a href="#How-to-Use-AngularJS2" class="headerlink" title="How to Use AngularJS2"></a>How to Use AngularJS2</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p> 用 Angular 扩展语法编写 HTML 模板， 用组件类管理这些模板，用服务添加应用逻辑， 用模块打包发布组件与服务。然后，我们通过引导根模块来启动该应用。 Angular 在浏览器中接管、展现应用的内容，并根据我们提供的操作指令响应用户的交互。</p>
+<ul>
+<li>模块 (module)</li>
+<li>组件 (component)</li>
+<li>模板 (template)</li>
+<li>元数据 (metadata)</li>
+<li>数据绑定 (data binding)</li>
+<li>指令 (directive)</li>
+<li>服务 (service)</li>
+<li>依赖注入 (dependency injection)</li>
+</ul>
+<a id="more"></a>
+<h3 id="模块-module"><a href="#模块-module" class="headerlink" title="模块 (module)"></a>模块 (module)</h3><p> Angular应用是模块化的，并且Angular有自己的模块 NgModules</p>
+<p> Angular 模块（无论是根模块还是特性模块）都是一个带有@NgModule装饰器的类。</p>
+<ul>
+<li>declarations - 声明本模块中拥有的视图类。 Angular 有三种视图类：组件、指令和管道。</li>
+<li>exports - declarations 的子集，可用于其它模块的组件模板。</li>
+<li>imports - 本模块声明的组件模板需要的类所在的其它模块。</li>
+<li>providers - 服务的创建者，并加入到全局服务列表中，可用于应用任何部分。</li>
+<li>bootstrap - 表示这个应用一开始会加载这个组件到index页面中。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Component &#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; BrowserModule &#125; <span class="keyword">from</span> <span class="string">'@angular/platform-browser'</span>;</span><br></pre></td></tr></table></figure>
+<p>应用模块需要BrowserModule的某些素材。 要访问这些素材，就得把它加入@NgModule元数据的imports中，就像这样</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">imports:[ BrowserModule ],</span><br></pre></td></tr></table></figure>
+<h3 id="组件-component"><a href="#组件-component" class="headerlink" title="组件 (component)"></a>组件 (component)</h3><p> 组件负责控制屏幕上的一小块区域，我们称之为视图。</p>
+<p> 我们在类中定义组件的应用逻辑，为视图提供支持。 组件通过一些由属性和方法组成的 API 与视图交互。</p>
+<h3 id="模板-template"><a href="#模板-template" class="headerlink" title="模板 (template)"></a>模板 (template)</h3><p> 我们通过组件的自带的模板来定义组件视图。模板以 HTML 形式存在，告诉 Angular 如何渲染组件。</p>
+<h3 id="元数据-metadata"><a href="#元数据-metadata" class="headerlink" title="元数据 (metadata)"></a>元数据 (metadata)</h3><p>  元数据告诉 Angular 如何处理一个类。</p>
+<p>  在TypeScript 中，我们用装饰器 (decorator) 来附加元数据</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@Component(&#123;</span><br><span class="line">  moduleId: <span class="built_in">module</span>.id,</span><br><span class="line">  selector:    <span class="string">'hero-list'</span>,</span><br><span class="line">  templateUrl: <span class="string">'hero-list.component.html'</span>,</span><br><span class="line">  providers:  [ HeroService ]</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">HeroListComponent</span> <span class="title">implements</span> <span class="title">OnInit</span> </span>&#123;</span><br><span class="line"><span class="comment">/* . . . */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>  @Component的配置项包括：</p>
+<ul>
+<li>moduleId: 为与模块相关的 URL（例如templateUrl）提供基地址。</li>
+<li>selector： CSS 选择器，它告诉 Angular 在父级 HTML 中查找<hero-list>标签，创建并插入该组件。 例如，如果应用的 HTML 包含<hero-list></hero-list>， Angular 就会把HeroListComponent的一个实例插入到这个标签中。</hero-list></li>
+<li>templateUrl：组件 HTML 模板的模块相对地址，如前所示。</li>
+<li>providers - 组件所需服务的依赖注入提供商数组。 这是在告诉 Angular：该组件的构造函数需要一个HeroService服务，这样组件就可以从服务中获得英雄数据。</li>
+</ul>
+<h3 id="数据绑定-data-binding"><a href="#数据绑定-data-binding" class="headerlink" title="数据绑定 (data binding)"></a>数据绑定 (data binding)</h3><p> Angular 支持数据绑定，一种让模板的各部分与组件的各部分相互合作的机制。 我们往模板 HTML 中添加绑定标记，来告诉 Angular 如何把二者联系起来。</p>
+<p> 双向数据绑定是重要的第四种绑定形式，它使用ngModel指令组合了属性绑定和事件绑定的功能.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;li&gt;&#123;&#123;hero.name&#125;&#125;&lt;/li&gt;</span><br><span class="line">&lt;hero-detail [hero]=&quot;selectedHero&quot;&gt;&lt;/hero-detail&gt;</span><br><span class="line">&lt;li (click)=&quot;selectHero(hero)&quot;&gt;&lt;/li&gt;</span><br><span class="line">&lt;input [(ngModel)]=&quot;hero.name&quot;&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>插值表达式在</li><li>标签中显示组件的hero.name属性的值。</li>
+<li>[hero]属性绑定把父组件HeroListComponent的selectedHero的值传到子组件HeroDetailComponent的hero属性中。</li>
+<li>(click) 事件绑定在用户点击英雄的名字时调用组件的selectHero方法。</li>
+<li>在双向绑定中，数据属性值通过属性绑定从组件流到输入框。用户的修改通过事件绑定流回组件，把属性值设置为最新的值。</li>
+</ul>
+<h3 id="指令-directive"><a href="#指令-directive" class="headerlink" title="指令 (directive)"></a>指令 (directive)</h3><p> Angular 模板是动态的。当 Angular 渲染它们时，它会根据指令提供的操作对 DOM 进行转换。</p>
+<p> 指令是一个带有“指令元数据”的类。在 TypeScript 中，要通过@Directive装饰器把元数据附加到类上。</p>
+<p> 组件是一个带模板的指令；@Component装饰器实际上就是一个@Directive装饰器，只是扩展了一些面向模板的特性。</p>
+<p> 还有两种其它类型的指令：结构型指令和属性 (attribute) 型指令。</p>
+<p> 自定义指令</p>
+<h3 id="管道-pipes"><a href="#管道-pipes" class="headerlink" title="管道(pipes)"></a>管道(pipes)</h3><p> 组件中另一个常用的功能是管道（pipes），通过在组件的元数据中指定 pipes，便可以在模板中使用它。管道的主要作用是用来格式化数据，通常这对于国际化很有用处</p>
+<h3 id="组件输出输入"><a href="#组件输出输入" class="headerlink" title="组件输出输入"></a>组件输出输入</h3><p> 一个组件可以指定输入或输出的属性，这是构成上文提到的组件自描述的因素之一。输入输出的属性可以使用属性修饰器（Property Decorator）@Input 和 @Output 来修饰。然后通过()和[]的语法来调用。</p>
+<p> 除了使用@Input和@Output修饰外，还可以在组件的元数据中使用 inputs、outputs 设置，设置的值必须为字符串数组，元素的名称需要和成员变量相对应。上述代码和以下代码是等价的：</p>
+<h3 id="组件生命周期"><a href="#组件生命周期" class="headerlink" title="组件生命周期"></a>组件生命周期</h3><p> 以下是组件的所有生命周期接口及对应的勾子方法，Angular 会按以下的顺序依次调用勾子方法：</p>
+<ul>
+<li>OnChanges ngOnChanges 当且仅当组件输入数据变化时被调用，“输入数据”指的是通过@Input修饰器显式指定的那些数据。</li>
+<li>OnInit 经常会使用 ngOnInit 获取数据，</li>
+<li>DoCheck  用于变化检测，该勾子方法会在每次变化检测发生时被调用。</li>
+<li>AfterContentInit</li>
+<li>AfterContentChecked</li>
+<li>AfterViewInit</li>
+<li>AfterViewChecked</li>
+<li>OnDestroy 不会被垃圾处理自动收集的资源应当在这个地方去释放，例如订阅了的观察者事件，绑定过的 DOM 事件，通过 setTimeout 或 setInterval 设置过的计时器等，都应当在 ngOnDestroy 中去注销、删除所有与该组件相关的回调。如果忽略这些的话，会导致一些意想不到的后果，并有可能导致内存泄漏。</li>
+</ul>
+<h3 id="组件数据监控"><a href="#组件数据监控" class="headerlink" title="组件数据监控"></a>组件数据监控</h3><h3 id="服务-service"><a href="#服务-service" class="headerlink" title="服务 (service)"></a>服务 (service)</h3><p> 服务是一个广义范畴，包括：值、函数，或应用所需的特性。</p>
+<p> 几乎任何东西都可以是一个服务。 典型的服务是一个类，具有专注的、明确的用途。它应该做一件特定的事情，并把它做好。</p>
+<h3 id="依赖注入-dependency-injection"><a href="#依赖注入-dependency-injection" class="headerlink" title="依赖注入 (dependency injection)"></a>依赖注入 (dependency injection)</h3><p>通常会把提供商添加到根模块上，以便在任何地方使用服务的同一个实例。</p>
+<p>或者，也可以在@Component元数据中的providers属性中把它注册在组件层：</p>
+<p>需要记住的关于依赖注入的要点是：</p>
+<ul>
+<li>依赖注入渗透在整个 Angular 框架中，被到处使用。</li>
+<li>注入器 (injector) 是本机制的核心。</li>
+<li>注入器负责维护一个容器，用于存放它创建过的服务实例。</li>
+<li>注入器能使用提供商创建一个新的服务实例。</li>
+<li>提供商是一个用于创建服务的配方。</li>
+<li>把提供商注册到注入器。</li>
+</ul>
+<h3 id="新建项目"><a href="#新建项目" class="headerlink" title="新建项目"></a>新建项目</h3><p>Angular CLI 帮助开发者快速创建Angular 2项目和组件</p>
+<p>安装配置</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span> -g typescript typings</span><br><span class="line"></span><br><span class="line">npm <span class="keyword">install</span> -g angular-cli</span><br></pre></td></tr></table></figure>
+ <figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ng <span class="keyword">new</span> project-name - 创建一个新项目，置为默认设置</span><br><span class="line">ng build - 构建/编译应用</span><br><span class="line">ng test - 运行单元测试</span><br><span class="line">ng e2e - 运行端到端（<span class="keyword">end</span>-to-<span class="keyword">end</span>）测试</span><br><span class="line">ng serve - 启动一个小型web服务器，用于托管应用</span><br><span class="line">ng deploy - 即开即用，部署到Github Pages或者Firebase</span><br><span class="line"> <span class="meta">``` </span></span><br><span class="line"></span><br><span class="line"><span class="keyword">generate</span> 可用 g  替换</span><br></pre></td></tr></table></figure>
+<p>ng generate component my-comp - 生成一个新组件，同时生成其测试规格和相应的HTML/CSS文件<br>ng generate directive my-directive - 生成一个新指令<br>ng generate pipe my-pipe - 生成一个新管道<br>ng generate service my-service - 生成一个新服务<br>ng generate route my-route - 生成一个新路由<br>ng generate class my-class - 生成一个简易的模型类</p>
+<p><code>`</code></p>
+<h3 id="开发入门"><a href="#开发入门" class="headerlink" title="开发入门"></a>开发入门</h3><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="http://codin.im/2016/09/18/angular2-architecture-intro/" target="_blank" rel="noopener">Angular2架构浅析</a></p>
+<p><a href="https://angular.cn/docs/ts/latest/guide/architecture.html" target="_blank" rel="noopener">Angular2中文官网</a></p>
+<p><a href="https://gf-rd.gitbooks.io/angular-2-step-by-step/content/" target="_blank" rel="noopener">Angular 2 入门到实战</a></p>
+<p><a href="http://www.infoq.com/cn/news/2016/05/angular-cli-ng-conf-2016" target="_blank" rel="noopener">Angular CLI</a></p>
+<p><a href="https://github.com/lightningtgc/awesome-ng2" target="_blank" rel="noopener">Angular资料</a></p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Angular2/" rel="tag">#Angular2</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/10/01/How-To-Use-JQeury/" rel="prev">How To JQeury</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/09/29/How-To-Use-Scp-Commond/" rel="next">How to commond scp upload aliyun</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+
+        
+          <div class="comments" id="comments">
+            
+          </div>
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="https://avatars1.githubusercontent.com/u/32269?v=3&s=460" alt="hyunwoo222" itemprop="image">
+          <p class="site-author-name" itemprop="name">hyunwoo222</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">How To ...</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/hyunwoo222" target="_blank">GitHub</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href target="_blank">Twitter</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href target="_blank">Weibo</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href target="_blank">DouBan</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href target="_blank">ZhiHu</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#How-to-Use-AngularJS2"><span class="nav-number">1.</span> <span class="nav-text">How to Use AngularJS2</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.1.</span> <span class="nav-text">简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#模块-module"><span class="nav-number">1.1.1.</span> <span class="nav-text">模块 (module)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组件-component"><span class="nav-number">1.1.2.</span> <span class="nav-text">组件 (component)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模板-template"><span class="nav-number">1.1.3.</span> <span class="nav-text">模板 (template)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#元数据-metadata"><span class="nav-number">1.1.4.</span> <span class="nav-text">元数据 (metadata)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据绑定-data-binding"><span class="nav-number">1.1.5.</span> <span class="nav-text">数据绑定 (data binding)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#指令-directive"><span class="nav-number">1.1.6.</span> <span class="nav-text">指令 (directive)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#管道-pipes"><span class="nav-number">1.1.7.</span> <span class="nav-text">管道(pipes)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组件输出输入"><span class="nav-number">1.1.8.</span> <span class="nav-text">组件输出输入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组件生命周期"><span class="nav-number">1.1.9.</span> <span class="nav-text">组件生命周期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组件数据监控"><span class="nav-number">1.1.10.</span> <span class="nav-text">组件数据监控</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#服务-service"><span class="nav-number">1.1.11.</span> <span class="nav-text">服务 (service)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#依赖注入-dependency-injection"><span class="nav-number">1.1.12.</span> <span class="nav-text">依赖注入 (dependency injection)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新建项目"><span class="nav-number">1.1.13.</span> <span class="nav-text">新建项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开发入门"><span class="nav-number">1.1.14.</span> <span class="nav-text">开发入门</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">1.2.</span> <span class="nav-text">参考资料</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright">
+  
+  &copy; &nbsp; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">hyunwoo222</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+    
+
+  
+
+
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>

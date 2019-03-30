@@ -1,0 +1,801 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head><meta name="generator" content="Hexo 3.8.0">
+  
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5">
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1">
+
+
+    <meta name="description" content="How To ...">
+
+
+
+  <meta name="keywords" content="POI,">
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1">
+
+
+<meta name="description" content="POI操作Excel常用方法总结一、POI简介 Apache POI是Apache软件基金会的开放源码函式库，POI提供API给Java程序对Microsoft Office格式档案读和写的功能。">
+<meta name="keywords" content="POI">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How To Use POI">
+<meta property="og:url" content="http://www.hanyuse.com/2015/10/01/How-To-Use-POIwithExcel/index.html">
+<meta property="og:site_name" content="How To ...">
+<meta property="og:description" content="POI操作Excel常用方法总结一、POI简介 Apache POI是Apache软件基金会的开放源码函式库，POI提供API给Java程序对Microsoft Office格式档案读和写的功能。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-03-30T14:08:20.277Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="How To Use POI">
+<meta name="twitter:description" content="POI操作Excel常用方法总结一、POI简介 Apache POI是Apache软件基金会的开放源码函式库，POI提供API给Java程序对Microsoft Office格式档案读和写的功能。">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'post'
+  };
+</script>
+
+  <title> How To Use POI | How To ... </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">How To ...</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br>
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            <i class="menu-item-icon icon-next-categories"></i> <br>
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            <i class="menu-item-icon icon-next-about"></i> <br>
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br>
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-next-tags"></i> <br>
+            标签
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              How To Use POI
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-10-01T10:14:22+08:00" content="2015-10-01">
+            2015-10-01
+          </time>
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/Java-Web/" itemprop="url" rel="index">
+                  <span itemprop="name">Java Web</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><h1 id="POI操作Excel常用方法总结"><a href="#POI操作Excel常用方法总结" class="headerlink" title="POI操作Excel常用方法总结"></a>POI操作Excel常用方法总结</h1><p>一、POI简介</p>
+<pre><code>Apache POI是Apache软件基金会的开放源码函式库，POI提供API给Java程序对Microsoft Office格式档案读和写的功能。
+</code></pre><a id="more"></a>
+<p>二、HSSF概况</p>
+<pre><code>HSSF是Horrible SpreadSheet Format的缩写，通过HSSF，你可以用纯Java代码来读取、写入、修改Excel文件。HSSF为读取操作提供了两类API：usermodel和eventusermodel，即“用户模型”和“事件-用户模型”。
+</code></pre><p>三、 POI EXCEL文档结构类</p>
+<pre><code>HSSFWorkbook          excel文档对象
+
+HSSFSheet             excel的sheet HSSFRow excel的行
+
+HSSFCell              excel的单元格 HSSFFont excel字体
+
+HSSFName              名称
+
+HSSFDataFormat        日期格式
+
+HSSFHeader            sheet头
+
+HSSFFooter            sheet尾
+
+HSSFCellStyle         cell样式
+
+HSSFDateUtil          日期
+
+HSSFPrintSetup        打印
+
+HSSFErrorConstants    错误信息表
+</code></pre><p>四、EXCEL常用操作方法 </p>
+<pre><code>1、 得到Excel常用对象
+
+POIFSFileSystem fs = new POIFSFileSystem(new FileInputStream(&quot;d:/test.xls&quot;)); 
+// 得到Excel工作簿对象 
+HSSFWorkbook wb = new HSSFWorkbook(fs);
+// 得到Excel工作表对象 
+HSSFSheet sheet = wb.getSheetAt(0); 
+// 得到Excel工作表的行 
+HSSFRow row = sheet.getRow(i);
+// 得到Excel工作表指定行的单元格 
+HSSFCell cell = row.getCell((short) j);
+// 得到单元格样式
+cellStyle = cell.getCellStyle();
+
+
+2、建立Excel常用对象
+
+
+// 创建Excel工作簿对象      
+HSSFWorkbook wb = new HSSFWorkbook();
+// 创建Excel工作表对象
+HSSFSheet sheet = wb.createSheet(&quot;new sheet&quot;);
+// 创建Excel工作表的行
+HSSFRow row = sheet.createRow((short)0);
+// 创建单元格样式
+cellStyle = wb.createCellStyle();
+// 创建Excel工作表指定行的单元格
+row.createCell((short)0).setCellStyle(cellStyle);
+// 设置Excel工作表的值
+row.createCell((short)0).setCellValue(1);
+</code></pre><p>   3、设置sheet名称和单元格内容</p>
+<pre><code>wb.setSheetName(1, &quot;第一张工作表&quot;,HSSFCell.ENCODING_UTF_16);         
+cell.setEncoding((short) 1);     
+cell.setCellValue(&quot;单元格内容&quot;); 
+</code></pre><p>   4、取得sheet的数目</p>
+<pre><code>wb.getNumberOfSheets();
+</code></pre><p>   5、根据index取得sheet对象</p>
+<pre><code>HSSFSheet sheet = wb.getSheetAt(0); 
+</code></pre><p>   6、取得有效的行数</p>
+<pre><code>   int rowcount = sheet.getLastRowNum(); 
+
+  7、取得一行的有效单元格个数
+
+   row.getLastCellNum();
+
+  8、单元格值类型读写
+
+ // 设置单元格为STRING类型
+ cell.setCellType(HSSFCell.CELL_TYPE_STRING);
+ // 读取为数值类型的单元格内容
+ cell.getNumericCellValue();
+
+9、设置列宽、行高 
+
+ sheet.setColumnWidth((short)column,(short)width);    
+ row.setHeight((short)height);
+
+10、添加区域，合并单元格 
+
+ // 合并从第rowFrom行columnFrom列到rowTo行columnTo的区域
+ Region region = new Region((short)rowFrom,(short)columnFrom,(short)rowTo,(short)columnTo);
+ sheet.addMergedRegion(region);
+ // 得到所有区域
+ sheet.getNumMergedRegions();
+
+11、保存Excel文件
+
+ FileOutputStream fileOut = new FileOutputStream(path); 
+ wb.write(fileOut); 
+
+12、根据单元格不同属性返回字符串数值
+</code></pre><p>   public String getCellStringValue(HSSFCell cell) {<br>        String cellValue = “”;<br>        switch (cell.getCellType()) {<br>        case HSSFCell.CELL_TYPE_STRING:   // 字符串类型<br>            cellValue = cell.getStringCellValue();<br>            if(cellValue.trim().equals(“”)||cellValue.trim().length()&lt;=0)<br>                cellValue=” “;<br>            break;<br>        case HSSFCell.CELL_TYPE_NUMERIC: // 数值类型<br>            cellValue = String.valueOf(cell.getNumericCellValue());<br>            break;<br>        case HSSFCell.CELL_TYPE_FORMULA: // 公式<br>            cell.setCellType(HSSFCell.CELL_TYPE_NUMERIC);<br>            cellValue = String.valueOf(cell.getNumericCellValue());<br>            break;<br>        case HSSFCell.CELL_TYPE_BLANK:<br>            cellValue=” “;<br>            break;<br>        case HSSFCell.CELL_TYPE_BOOLEAN:<br>            break;<br>        case HSSFCell.CELL_TYPE_ERROR:<br>            break;<br>        default:<br>            break;<br>        }<br>        return cellValue;<br>    }</p>
+<pre><code>13、常用单元格边框格式
+
+HSSFCellStyle style = wb.createCellStyle();    
+style.setBorderBottom(HSSFCellStyle.BORDER_DOTTED);  // 下边框     
+style.setBorderLeft(HSSFCellStyle.BORDER_DOTTED);      // 左边框     
+style.setBorderRight(HSSFCellStyle.BORDER_THIN);        // 右边框     
+style.setBorderTop(HSSFCellStyle.BORDER_THIN);          // 上边框  
+
+14、设置字体和内容位置
+
+HSSFFont f = wb.createFont();    
+f.setFontHeightInPoints((short) 11);                                     // 字号    
+f.setBoldweight(HSSFFont.BOLDWEIGHT_NORMAL);               // 加粗    
+style.setFont(f);    
+style.setAlignment(HSSFCellStyle.ALIGN_CENTER);                 // 左右居中    
+style.setVerticalAlignment(HSSFCellStyle.VERTICAL_CENTER); // 上下居中    
+style.setRotation(short rotation);                                        // 单元格内容的旋转的角度    
+HSSFDataFormat df = wb.createDataFormat();    
+style1.setDataFormat(df.getFormat(&quot;0.00%&quot;));                    // 设置单元格数据格式    
+cell.setCellFormula(string);                                                 // 给单元格设公式    
+style.setRotation(short rotation);                                       // 单元格内容的旋转的角度 
+</code></pre><p>  15、插入图片</p>
+<pre><code>// 先把读进来的图片放到一个ByteArrayOutputStream中,以便产生ByteArray    
+ByteArrayOutputStream byteArrayOut = new ByteArrayOutputStream();    
+BufferedImage bufferImg = ImageIO.read(new File(&quot;ok.jpg&quot;));    
+ImageIO.write(bufferImg,&quot;jpg&quot;,byteArrayOut);    
+// 读进一个excel模版    
+FileInputStream fos = new FileInputStream(filePathName+&quot;/stencil.xlt&quot;);     
+fs = new POIFSFileSystem(fos);    
+// 创建一个工作薄    
+HSSFWorkbook wb = new HSSFWorkbook(fs);    
+HSSFSheet sheet = wb.getSheetAt(0);    
+HSSFPatriarch patriarch = sheet.createDrawingPatriarch();    
+HSSFClientAnchor anchor = new HSSFClientAnchor(0,0,1023,255,(short) 0,0,(short)10,10);
+patriarch.createPicture(anchor, wb.addPicture(byteArrayOut.toByteArray(), HSSFWorkbook.PICTURE_TYPE_JPEG));
+
+16、调整工作表位置
+
+HSSFWorkbook wb = new HSSFWorkbook();   
+HSSFSheet sheet = wb.createSheet(&quot;format sheet&quot;);   
+HSSFPrintSetup ps = sheet.getPrintSetup();   
+sheet.setAutobreaks(true);   
+ps.setFitHeight((short)1);   
+ps.setFitWidth((short)1); 
+</code></pre><p>   17、设置打印区域</p>
+<pre><code>HSSFSheet sheet = wb.createSheet(&quot;Sheet1&quot;);   
+wb.setPrintArea(0, &quot;$A$1:$C$2&quot;);  
+</code></pre><p>   18、标注脚注<br>    HSSFSheet sheet = wb.createSheet(“format sheet”);<br>    HSSFFooter footer = sheet.getFooter()<br>    footer.setRight( “Page “ + HSSFFooter.page() + “ of “ + HSSFFooter.numPages() ); </p>
+<p>   19、在工作单中清空行数据，调整行位置</p>
+<pre><code>HSSFWorkbook wb = new HSSFWorkbook();   
+HSSFSheet sheet = wb.createSheet(&quot;row sheet&quot;);   
+// Create various cells and rows for spreadsheet.   
+// Shift rows 6 - 11 on the spreadsheet to the top (rows 0 - 5)   
+sheet.shiftRows(5, 10, -5);  
+</code></pre><p>   20、选中指定的工作表</p>
+<p>   HSSFSheet sheet = wb.createSheet(“row sheet”);<br>   heet.setSelected(true);</p>
+<p>   21、工作表的放大缩小   </p>
+<p>  HSSFSheet sheet1 = wb.createSheet(“new sheet”);<br>   sheet1.setZoom(1,2);   // 50 percent magnification  </p>
+<p>   22、头注和脚注</p>
+<p>   HSSFSheet sheet = wb.createSheet(“new sheet”);<br>   HSSFHeader header = sheet.getHeader();<br>   header.setCenter(“Center Header”);<br>   header.setLeft(“Left Header”);<br>   header.setRight(HSSFHeader.font(“Stencil-Normal”, “Italic”) + HSSFHeader.fontSize((short) 16) + “Right w/ Stencil-Normal Italic font and size 16”);</p>
+<pre><code>23、自定义颜色  
+</code></pre><p>   HSSFCellStyle style = wb.createCellStyle();<br>   style.setFillForegroundColor(HSSFColor.LIME.index);<br>   style.setFillPattern(HSSFCellStyle.SOLID_FOREGROUND);<br>   HSSFFont font = wb.createFont();<br>   font.setColor(HSSFColor.RED.index);<br>   style.setFont(font);<br>   cell.setCellStyle(style);</p>
+<p>   24、填充和颜色设置</p>
+<p>   HSSFCellStyle style = wb.createCellStyle();<br>   style.setFillBackgroundColor(HSSFColor.AQUA.index);<br>   style.setFillPattern(HSSFCellStyle.BIG_SPOTS);<br>   HSSFCell cell = row.createCell((short) 1);<br>   cell.setCellValue(“X”);<br>   style = wb.createCellStyle();<br>   style.setFillForegroundColor(HSSFColor.ORANGE.index);<br>   style.setFillPattern(HSSFCellStyle.SOLID_FOREGROUND);<br>   cell.setCellStyle(style); </p>
+<p>   25、强行刷新单元格公式</p>
+<p>   HSSFFormulaEvaluator eval=new HSSFFormulaEvaluator((HSSFWorkbook) wb);<br>   private static void updateFormula(Workbook wb,Sheet s,int row){<br>        Row r=s.getRow(row);<br>        Cell c=null;<br>        FormulaEcaluator eval=null;<br>        if(wb instanceof HSSFWorkbook)<br>            eval=new HSSFFormulaEvaluator((HSSFWorkbook) wb);<br>        else if(wb instanceof XSSFWorkbook)<br>            eval=new XSSFFormulaEvaluator((XSSFWorkbook) wb);<br>        for(int i=r.getFirstCellNum();i&lt;r.getLastCellNum();i++){<br>            c=r.getCell(i);<br>            if(c.getCellType()==Cell.CELL_TYPE_FORMULA)<br>                eval.evaluateFormulaCell(c);<br>        }   </p>
+<pre><code>}
+</code></pre><p>说明：FormulaEvaluator提供了evaluateFormulaCell(Cell cell)方法，计算公式保存结果，但不改变公式。而evaluateInCell(Cell cell) 方法是计算公式，并将原公式替换为计算结果，也就是说该单元格的类型不在是Cell.CELL_TYPE_FORMULA 是Cell.CELL_TYPE_NUMBERIC。</p>
+<p>HSSFFormulaEvaluator提供了静态方法evaluateAllFormulaCells(HSSFWorkbook wb) ，计算一个Excel文件的所有公式，用起来很方便。</p>
+<p><a href="https://my.oschina.net/u/869416/blog/113156" target="_blank" rel="noopener">https://my.oschina.net/u/869416/blog/113156</a></p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/POI/" rel="tag">#POI</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/10/01/How-To-Use-Redis/" rel="prev">How To Use Redis</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/10/01/How-To-Use-SpringBoot/" rel="next">How To Use SpringBoot</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+
+        
+          <div class="comments" id="comments">
+            
+          </div>
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="https://avatars1.githubusercontent.com/u/32269?v=3&s=460" alt="hyunwoo222" itemprop="image">
+          <p class="site-author-name" itemprop="name">hyunwoo222</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">How To ...</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/hyunwoo222" target="_blank">GitHub</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href target="_blank">Twitter</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href target="_blank">Weibo</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href target="_blank">DouBan</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href target="_blank">ZhiHu</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#POI操作Excel常用方法总结"><span class="nav-number">1.</span> <span class="nav-text">POI操作Excel常用方法总结</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright">
+  
+  &copy; &nbsp; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">hyunwoo222</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+    
+
+  
+
+
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>

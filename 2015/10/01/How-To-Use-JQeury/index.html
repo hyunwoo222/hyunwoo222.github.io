@@ -1,0 +1,673 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head><meta name="generator" content="Hexo 3.8.0">
+  
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5">
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1">
+
+
+    <meta name="description" content="How To ...">
+
+
+
+  <meta name="keywords" content="JQeury,">
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1">
+
+
+<meta name="description" content="How to Use JQuery1. jQuery的加载一般采用以下方式 加载jQuery库   //表示同时支持http协议和https协议。">
+<meta name="keywords" content="JQeury">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How To JQeury">
+<meta property="og:url" content="http://www.hanyuse.com/2015/10/01/How-To-Use-JQeury/index.html">
+<meta property="og:site_name" content="How To ...">
+<meta property="og:description" content="How to Use JQuery1. jQuery的加载一般采用以下方式 加载jQuery库   //表示同时支持http协议和https协议。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-03-30T14:08:20.276Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="How To JQeury">
+<meta name="twitter:description" content="How to Use JQuery1. jQuery的加载一般采用以下方式 加载jQuery库   //表示同时支持http协议和https协议。">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'post'
+  };
+</script>
+
+  <title> How To JQeury | How To ... </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">How To ...</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br>
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            <i class="menu-item-icon icon-next-categories"></i> <br>
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            <i class="menu-item-icon icon-next-about"></i> <br>
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br>
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-next-tags"></i> <br>
+            标签
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              How To JQeury
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-10-01T10:14:22+08:00" content="2015-10-01">
+            2015-10-01
+          </time>
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/Java-Web/" itemprop="url" rel="index">
+                  <span itemprop="name">Java Web</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><h1 id="How-to-Use-JQuery"><a href="#How-to-Use-JQuery" class="headerlink" title="How to Use JQuery"></a>How to Use JQuery</h1><h2 id="1-jQuery的加载"><a href="#1-jQuery的加载" class="headerlink" title="1. jQuery的加载"></a>1. jQuery的加载</h2><p>一般采用以下方式 加载jQuery库   //表示同时支持http协议和https协议。</p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;text/javascript&quot;</span><br><span class="line">  src=&quot;//code.jquery.com/jquery-1.11.0.min.js&quot;&gt;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">window.jQuery ||</span><br><span class="line">  document.write(</span><br><span class="line">    &apos;&lt;script src=&quot;js/jquery-1.11.0.min.js&quot; type=&quot;text/javascript&quot;&gt;&lt;\/script&gt;&apos;</span><br><span class="line">  );</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">```    </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## 2. jQuery基础</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">jQuery常用选择器</span><br></pre></td></tr></table></figure>
+<p>$(“#uid”); // 选取id属性为”uid”的单个元素<br>$(“p”); // 选取所有的p元素<br>$(“.test”); // 选择所有带有CSS类名”test”的元素<br>$(“[name=books]”); // 选择所有name属性为”books”的元素</p>
+<p>// 多个选择器以空格或指定符号隔开，将匹配与前者具有指定关系的最后一个选择器所表示的元素<br>$(“#uid span”); // 选择id为”uid”的元素的所有后代span元素<br>$(“p &gt; span”); // 选择p元素的所有子代span元素<br>$(“div + p”); // 选择div元素后面紧邻的同辈p元素<br>$(“div p span”); // 选择div元素的所有后代p元素的后代span元素</p>
+<p>// 多个选择器之间没有空格，将匹配同时满足这些选择器条件的元素<br>$(“p#uid”); // 选择id属性为”uid”的p元素<br>$(“div.foo”); // 选择所有带有CSS类名”foo”的div元素<br>$(“.foo.bar”); // 选择所有同时带有CSS类名”foo”和”bar”的元素<br>$(“input[name=books][id]”); // 选择所有name属性为”books”并且具备id属性的元素</p>
+<p>// jQuery特有的选择器，当然也可以和其他选择器任意组合使用<br>$(“:checkbox”); // 选取所有的checkbox元素<br>$(“:text”); // 选取所有type为text的input元素<br>$(“:password”); // 选取所有type为password的input元素<br>$(“:checked”); // 选取所有选中的radio、checkbox、option元素<br>$(“:selected”); // 选取所有选中的option元素<br>$(“:input”); // 选取所有的表单控件元素(所有input、textarea、select、button元素)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">jQuery元素帅选</span><br></pre></td></tr></table></figure>
+<p>// 以下方法都返回一个新的jQuery对象，他们包含筛选到的元素<br>$(“ul li”).eq(1); // 选取ul li中匹配的索引顺序为1的元素(也就是第2个li元素)<br>$(“ul li”).first(); // 选取ul li中匹配的第一个元素<br>$(“ul li”).last(); // 选取ul li中匹配的最后一个元素<br>$(“ul li”).slice(1, 4); // 选取第2 ~ 4个元素<br>$(“ul li”).filter(“:even”); // 选取ul li中所有奇数顺序的元素<br>$(“div”).find(“p”); // 选取所有div元素的所有后代p元素<br>$(“div”).children(); // 选取所有div元素的所有子代元素<br>$(“div”).children(“p”); // 选取所有div元素的所有子代p元素<br>$(“span”).parent(); // 选取所有span元素的父元素<br>$(“span”).parent(“.foo.bar”); // 选取所有span元素的带有CSS类名”foo”和”bar”的父元素<br>$(“#uid”).prev(); // 选取id为uid的元素之前紧邻的同辈元素<br>$(“#uid”).next(); // 选取id为uid的元素之后紧邻的同辈元素</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">jQuery核心：DOM操作</span><br></pre></td></tr></table></figure>
+<p>// selector 表示具体的选择器</p>
+<p>$(“selector”).val(); // 获取第一个匹配元素的value值(一般用于表单控件)<br>$(“selector”).val(“Hello”); // 设置所有匹配元素的value值为”Hello”</p>
+<p>$(“selector”).html(); // 获取第一个匹配元素的innerHTML值<br>$(“selector”).html(“Hello”); // 设置所有匹配元素的innerHTML值为”Hello”</p>
+<p>$(“selector”).text(); // 获取第一个匹配元素的innerText值(jQuery已进行兼容处理)<br>$(“selector”).text(“Hello”); // 设置所有匹配元素的innerText值为”Hello”</p>
+<p>$(“selector”).attr(“class”); // 获取第一个匹配元素class属性<br>$(“selector”).attr(“class”, “code”); // 设置所有匹配元素的class属性为”code”<br>$(“selector”).removeAttr(“class”); // 移除所有匹配元素的class属性</p>
+<p>$(“selector”).prop(“checked”); // 获取第一个匹配元素的checked属性值<br>$(“selector”).prop(“checked”, true); // 设置所有匹配元素的checked属性值为true(意即选中所有匹配的复选框或单选框)<br>$(“selector”).removeProp(“className”); // 移除所有匹配元素的className属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">文档处理</span><br></pre></td></tr></table></figure>
+<p>// 以下$A均表示当前jQuery对象，$B可以是选择器字符串、html字符串、DOM元素、jQuery对象</p>
+<p>$A.before( $B ); // 在$A之前插入$B<br>$A.after( $B ); // 在$A之后插入$B</p>
+<p>$A.insertBefore( $B ); // 将$A插入到$B之前的位置<br>$A.insertAfter( $B ); // 将$A插入到$B之后的位置</p>
+<p>$A.append( $B ); // 在$A内部的末尾位置追加$B<br>$A.appendTo( $B ); // 将$A追加到$B内部的末尾位置</p>
+<p>$A.prepend( $B ); // 在$A内部的开头位置追加$B<br>$A.prependTo( $B ); // 将$A追加到$B内部的开头位置</p>
+<p>$A.replaceAll( $B ); // 用$A替换$B<br>$A.replaceWith( $B ); // 用$B替换$A</p>
+<p>$A.wrap( $B ); // 在$A的外侧包裹$B<br>$A.unwrap( ); // 只移除$A的父元素的标签<br>$A.wrapAll( $B ); // 在整个$A的外侧用单个$B将其包裹起来<br>$A.wrapInner( $B ); // 在$A的内侧包裹$B</p>
+<p>$A.empty(); // 清空$A的所有内容<br>$A.remove(); // 删除$A及其绑定的事件、附加数据等<br>$A.detach(); // 删除$A，但保留其绑定的事件、附加数据等</p>
+<p>$A.clone(); // 克隆一个$A</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">CSS操作</span><br></pre></td></tr></table></figure>
+<p>$(“selector”).css(“margin-left”); // 获取第一个匹配元素的margin-left的属性值<br>$(“selector”).css(“marginLeft”); // 与上一行代码作用相同，css()支持这两种写法</p>
+<p>$(“selector”).css(“marginLeft”, 15); // 设置所有匹配元素的margin-left为15px(数字的默认单位均为px)<br>$(“selector”).css( { marginLeft: 15, color: “red”, fontSize: “14px”} ); // 一次性设置所有匹配元素的多个样式属性</p>
+<p>$(“selector”).css( “marginLeft”, “”); // 设为空字符串，则表示删除该样式属性</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">动画效果</span><br></pre></td></tr></table></figure>
+<p>$(“selector”).show(); // 显示隐藏的元素，默认不带过渡动画效果<br>$(“selector”).show( 400 ); // 显示隐藏的元素，带有400毫秒的过渡动画效果<br>$(“selector”).show( “fast” ); // 显示隐藏的元素，带有200毫秒的过渡动画效果<br>$(“selector”).show( “slow” ); // 显示隐藏的元素，带有600毫秒的过渡动画效果</p>
+<p>$(“selector”).hide(); // 隐藏显示的元素，其用法与show()相同<br>$(“selector”).toggle(); // 切换显示/隐藏元素(如果显示就隐藏，隐藏就显示)，其用法与show()类似</p>
+<p>/<em> 下面的slide</em>、fade*系列方法与上面的show()、hide()、toggle()等方法作用相同，</p>
+<ul>
+<li>用法也类似，只是带有不同的动画效果<br>*/</li>
+</ul>
+<p>$(“selector”).slideDown(); // 显示隐藏的元素，带有向下滑动的过渡动画效果<br>$(“selector”).slideUp(); // 隐藏显示的元素，带有向上滑动的过渡动画效果<br>$(“selector”).slideToggle(); // 切换显示/隐藏的元素，带有向上/下滑动的过渡动画效果</p>
+<p>$(“selector”).fadeIn(); // 显示隐藏的元素，带有淡入的过渡动画效果<br>$(“selector”).fadeOut(); // 隐藏显示的元素，带有淡出的过渡动画效果<br>$(“selector”).fadeToggle(); // 隐藏显示的元素，带有淡出的过渡动画效果</p>
+<p>// 设置所有匹配元素的css样式”width: 200px; height: 100px”，并执行一个当前样式到指定样式的过渡动画效果<br>// 动画的执行时间为 1000 毫秒<br>$(“selector”).animate( { width: “200px”, height: “100px” }, 1000 );</p>
+<p><code>`</code></p>
+<p>jQuery核心：事件处理</p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JQeury/" rel="tag">#JQeury</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/10/01/How-To-Use-BeanValidation/" rel="prev">How To Use BeanValidation</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/10/01/How-To-Use-Angular2/" rel="next">How To Use Angular2</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+
+        
+          <div class="comments" id="comments">
+            
+          </div>
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="https://avatars1.githubusercontent.com/u/32269?v=3&s=460" alt="hyunwoo222" itemprop="image">
+          <p class="site-author-name" itemprop="name">hyunwoo222</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">How To ...</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/hyunwoo222" target="_blank">GitHub</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href target="_blank">Twitter</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href target="_blank">Weibo</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href target="_blank">DouBan</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href target="_blank">ZhiHu</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#How-to-Use-JQuery"><span class="nav-number">1.</span> <span class="nav-text">How to Use JQuery</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-jQuery的加载"><span class="nav-number">1.1.</span> <span class="nav-text">1. jQuery的加载</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright">
+  
+  &copy; &nbsp; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">hyunwoo222</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+    
+
+  
+
+
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>

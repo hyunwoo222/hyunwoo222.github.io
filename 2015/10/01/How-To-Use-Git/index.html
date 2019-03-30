@@ -1,0 +1,674 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head><meta name="generator" content="Hexo 3.8.0">
+  
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5">
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1">
+
+
+    <meta name="description" content="How To ...">
+
+
+
+  <meta name="keywords" content="git,">
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1">
+
+
+<meta name="description" content="转载：CentOS安装Git服务器 Centos 6.4 + Git 1.8.2.2 + gitosisLinux CentOS http://git-scm.com/book/zh/v1/%E8%B5%B7%E6%AD%A5# 1. 查看Linux系统服务器系统版本12345cat /etc/redhat-release   # 查看系统版本CentOS release 6.4 (Final)i">
+<meta name="keywords" content="git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How To Use Git">
+<meta property="og:url" content="http://www.hanyuse.com/2015/10/01/How-To-Use-Git/index.html">
+<meta property="og:site_name" content="How To ...">
+<meta property="og:description" content="转载：CentOS安装Git服务器 Centos 6.4 + Git 1.8.2.2 + gitosisLinux CentOS http://git-scm.com/book/zh/v1/%E8%B5%B7%E6%AD%A5# 1. 查看Linux系统服务器系统版本12345cat /etc/redhat-release   # 查看系统版本CentOS release 6.4 (Final)i">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-03-30T14:08:20.268Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="How To Use Git">
+<meta name="twitter:description" content="转载：CentOS安装Git服务器 Centos 6.4 + Git 1.8.2.2 + gitosisLinux CentOS http://git-scm.com/book/zh/v1/%E8%B5%B7%E6%AD%A5# 1. 查看Linux系统服务器系统版本12345cat /etc/redhat-release   # 查看系统版本CentOS release 6.4 (Final)i">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'post'
+  };
+</script>
+
+  <title> How To Use Git | How To ... </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">How To ...</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br>
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            <i class="menu-item-icon icon-next-categories"></i> <br>
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            <i class="menu-item-icon icon-next-about"></i> <br>
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br>
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-next-tags"></i> <br>
+            标签
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              How To Use Git
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-10-01T10:41:43+08:00" content="2015-10-01">
+            2015-10-01
+          </time>
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/project/" itemprop="url" rel="index">
+                  <span itemprop="name">project</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><h2 id="转载：CentOS安装Git服务器-Centos-6-4-Git-1-8-2-2-gitosis"><a href="#转载：CentOS安装Git服务器-Centos-6-4-Git-1-8-2-2-gitosis" class="headerlink" title="转载：CentOS安装Git服务器 Centos 6.4 + Git 1.8.2.2 + gitosis"></a>转载：CentOS安装Git服务器 Centos 6.4 + Git 1.8.2.2 + gitosis</h2><p>Linux CentOS</p>
+<p><a href="http://git-scm.com/book/zh/v1/%E8%B5%B7%E6%AD%A5#" target="_blank" rel="noopener">http://git-scm.com/book/zh/v1/%E8%B5%B7%E6%AD%A5#</a></p>
+<h3 id="1-查看Linux系统服务器系统版本"><a href="#1-查看Linux系统服务器系统版本" class="headerlink" title="1. 查看Linux系统服务器系统版本"></a>1. 查看Linux系统服务器系统版本</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/redhat-<span class="keyword">release</span>   <span class="comment"># 查看系统版本</span></span><br><span class="line"></span><br><span class="line">CentOS <span class="keyword">release</span> <span class="number">6.4</span> (<span class="keyword">Final</span>)</span><br><span class="line"></span><br><span class="line">ifconfig                 <span class="comment"># 查看服务器的IP</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="2-在服务器上安装git及做些操作"><a href="#2-在服务器上安装git及做些操作" class="headerlink" title="2. 在服务器上安装git及做些操作"></a>2. 在服务器上安装git及做些操作</h3><ul>
+<li>执行命令</li>
+</ul>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">sudo yum <span class="keyword">install</span> curl-devel expat-devel gettext-devel openssl-devel zlib-devel perl-devel</span><br></pre></td></tr></table></figure>
+<ul>
+<li>同时下载git-1.8.2.2.tar.gz文件，然后将其<code>mv</code> 到<code>/usr/local/src</code>目录。<a href="http://code.google.com/p/git-core" target="_blank" rel="noopener">git-1.8.2.2.tar.gz安装包下载地址</a></li>
+</ul>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">cd /usr/local/src</span><br><span class="line"></span><br><span class="line">sudo tar -zvxf git<span class="number">-1.8</span><span class="number">.2</span><span class="number">.2</span>.tar.gz</span><br><span class="line"></span><br><span class="line">cd git<span class="number">-1.8</span><span class="number">.2</span><span class="number">.2</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">sudo make prefix=/usr/local/git all</span><br><span class="line"></span><br><span class="line">sudo make prefix=/usr/local/git install</span><br></pre></td></tr></table></figure>
+<ul>
+<li>增加软连接</li>
+</ul>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">sudo ln -s <span class="regexp">/usr/</span>local<span class="regexp">/git/</span>bin<span class="regexp">/* /u</span>sr<span class="regexp">/bin/</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">git --version  <span class="comment">#如果能显示版本号，即表示成功`</span></span><br></pre></td></tr></table></figure>
+<h3 id="3-在服务器安装gitosis"><a href="#3-在服务器安装gitosis" class="headerlink" title="3. 在服务器安装gitosis"></a>3. 在服务器安装gitosis</h3><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">sudo yum install <span class="keyword">python</span> <span class="keyword">python</span>-setuptools</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">cd</span> /usr/local/src</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">git clone gi<span class="variable">t:</span>//github.<span class="keyword">com</span>/res0nat0r/gitosis.git</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">cd</span> gitosis</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">python</span> setup.<span class="keyword">py</span> install  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#显示Finished processing dependencies <span class="keyword">for</span> gitosis==<span class="number">0.2</span>即表示成功</span><br></pre></td></tr></table></figure>
+<h3 id="4-在开发机上-生产密钥并上传到服务器上"><a href="#4-在开发机上-生产密钥并上传到服务器上" class="headerlink" title="4. 在开发机上,生产密钥并上传到服务器上"></a>4. 在开发机上,生产密钥并上传到服务器上</h3><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">ssh-keygen -t rsa   <span class="comment">#一路回车，不需要设置密码</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#上传公钥到服务器(默认SSH端口22)</span></span><br><span class="line"></span><br><span class="line">scp ~<span class="regexp">/.ssh/id</span>_rsa.pub git<span class="variable">@192</span>.<span class="number">168.100</span>.<span class="number">202</span><span class="symbol">:/tmp</span></span><br></pre></td></tr></table></figure>
+<p>或编辑<code>/etc/hosts</code>文件，在<code>/etc/hosts</code>文件里添加如下文本：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># <span class="selector-tag">local</span> <span class="selector-tag">git</span> <span class="selector-tag">server</span></span><br><span class="line"></span><br><span class="line">192<span class="selector-class">.168</span><span class="selector-class">.100</span><span class="selector-class">.202</span> <span class="selector-tag">zgit</span></span><br></pre></td></tr></table></figure>
+<p>然后再上传自己的公钥到服务器</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">scp ~<span class="regexp">/.ssh/id</span>_rsa.pub tailin<span class="variable">@zgit</span><span class="symbol">:/tmp/</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 登录到git服务器</span></span><br><span class="line"></span><br><span class="line">ls /tmp/id_rsa.pub  <span class="comment">#显示已经上传的密钥</span></span><br></pre></td></tr></table></figure>
+<h3 id="5-服务器上生成git用户，使用git用户并初始化gitosis"><a href="#5-服务器上生成git用户，使用git用户并初始化gitosis" class="headerlink" title="5. 服务器上生成git用户，使用git用户并初始化gitosis"></a>5. 服务器上生成git用户，使用git用户并初始化<code>gitosis</code></h3><figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta"># 创建git版本管理用户 git</span></span><br><span class="line"></span><br><span class="line">sudo useradd -c <span class="string">'git version manage'</span> -m -d /home/git -s bin/bash  git</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta"># 更改git用户的密码</span></span><br><span class="line"></span><br><span class="line">sudo passwd git</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta"># su 到git用户</span></span><br><span class="line"></span><br><span class="line">su - git</span><br><span class="line"></span><br><span class="line">gitosis-init &lt; /tmp/id_rsa.pub</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">#显示以下信息即表示成功</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#Initialized empty Git repository in /home/git/repositories/gitosis-admin.git/</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#Reinitialized existing Git repository in /home/git/repositories/gitosis-admin.git/</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">#删除密钥</span></span><br><span class="line"></span><br><span class="line">rm -rf /tmp/id_rsa.pub</span><br></pre></td></tr></table></figure>
+<h3 id="6-在个人开发机上导出项目管理"><a href="#6-在个人开发机上导出项目管理" class="headerlink" title="6. 在个人开发机上导出项目管理"></a>6. 在个人开发机上导出项目管理</h3><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">mkdir -p /repo</span><br><span class="line"></span><br><span class="line">cd /repo</span><br><span class="line"></span><br><span class="line">git clone git<span class="variable">@zgit</span><span class="symbol">:repositores/gitosis-admin</span>.git</span><br></pre></td></tr></table></figure>
+<h3 id="7-在个人开发机增加及设置管理项目"><a href="#7-在个人开发机增加及设置管理项目" class="headerlink" title="7. 在个人开发机增加及设置管理项目"></a>7. 在个人开发机增加及设置管理项目</h3><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">cd /repo/gitosis-admin</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看git服务器已经上传密钥</span></span><br><span class="line"></span><br><span class="line">ls keydir  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">cat keydir/ltl@jackliu-ThinkPad.pub  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#ltl<span class="doctag">@jackliu</span>-ThinkPad.pub为已经上传的开发机生成的公密</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#显示密钥 最后的字符串为 密钥用户名 这里为 ltl<span class="doctag">@jackliu</span>-ThinkPad</span></span><br><span class="line"></span><br><span class="line">vim gitosis.conf</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#在文件尾增加以下内容</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">[group test-git]            <span class="comment"># 具有写权限的组名称</span></span><br><span class="line"></span><br><span class="line">writable = test-git         <span class="comment"># 该组可写的项目名称</span></span><br><span class="line"></span><br><span class="line">members = ltl@jackliu-ThinkPad  guangyun.ni@yeepay.com     <span class="comment">#该组的成员(密钥用户名) 多个用户协同开发时，以空格分隔</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果要增加只读的组 参考如下</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># [group test-git-readnoly]          # 具有都权限的组名称</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># readonly = test-git                # 该组只读的项目名称</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># members = ltl<span class="doctag">@jackliu</span>-ThinkPad     # 该组的成员</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#提交修改</span></span><br><span class="line"></span><br><span class="line">git add .</span><br><span class="line"></span><br><span class="line">git commit -a -m <span class="string">"add test-git repo"</span></span><br><span class="line"></span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
+<h3 id="8-在个人开发机上初始，增加及使用项目test-git"><a href="#8-在个人开发机上初始，增加及使用项目test-git" class="headerlink" title="8. 在个人开发机上初始，增加及使用项目test-git"></a>8. 在个人开发机上初始，增加及使用项目test-git</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">cd ~/repo  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">mkdir test-git   </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">cd test-git  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">git init  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">touch readme  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">git add .   </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">git commit -<span class="selector-tag">a</span> -m <span class="string">"init test-git"</span>  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">git remote add origin git@<span class="number">192.168</span>.<span class="number">84.129</span>:repositories/test-git<span class="selector-class">.git</span>  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="number">1</span>.在执行</span><br><span class="line"></span><br><span class="line">$ git remote addorigin git@github<span class="selector-class">.com</span>:defnngj/hello-world.git</span><br><span class="line"></span><br><span class="line">错误提示：fatal: remote origin already exists.</span><br><span class="line"></span><br><span class="line">解决办法：</span><br><span class="line"></span><br><span class="line">$ git remote rm origin</span><br><span class="line"></span><br><span class="line">然后在执行：$ git remote add origin git@github<span class="selector-class">.com</span>:defnngj/hello-world<span class="selector-class">.git</span> 就不会报错误了</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"><span class="number">2</span>. 在执行</span><br><span class="line"></span><br><span class="line">$ git push origin master</span><br><span class="line"></span><br><span class="line">错误提示：error:failed to push som refs to.......</span><br><span class="line"></span><br><span class="line">解决办法：</span><br><span class="line"></span><br><span class="line">$ git pull origin master <span class="comment">// 先把远程服务器github上面的文件拉下来，再push 上去。</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
+<h3 id="9-增加协同开发者的公钥key到git服务器"><a href="#9-增加协同开发者的公钥key到git服务器" class="headerlink" title="9. 增加协同开发者的公钥key到git服务器"></a>9. 增加协同开发者的公钥key到git服务器</h3><ul>
+<li>执行<code>cd repo/gitosis-admin/keydir</code>切换目录</li>
+</ul>
+<ul>
+<li>把协同开发者的id_rsa.pub 文件里的数据 拷贝到 对应的开发者的<code>密钥用户名.pub</code>文件。如把密钥用户名 <a href="mailto:guangyun.ni@yeepay.com" target="_blank" rel="noopener">guangyun.ni@yeepay.com</a> 的 id_rsa.pub 文件中文本 粘贴到 <a href="mailto:guangyun.ni@yeepay.com.pub" target="_blank" rel="noopener">guangyun.ni@yeepay.com.pub</a> 文件里，并保存</li>
+</ul>
+<ul>
+<li><p>然后将添加数据后的目录更新到git服务器</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">git</span> <span class="keyword">add </span>.  </span><br><span class="line"></span><br><span class="line"><span class="symbol">git</span> commit -am <span class="string">"add guangyun.ni@yeepay.com.pub file"</span>  </span><br><span class="line"></span><br><span class="line"><span class="symbol">git</span> <span class="keyword">push </span>origin master</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol start="10">
+<li><p>本文档参考：</p>
+<p><a href="http://blog.sina.com.cn/s/blog_86fe5b440101975o.html" target="_blank" rel="noopener">CentOS git搭建参考1</a>，</p>
+<p><a href="http://www.cnblogs.com/nasa/archive/2012/05/31/2528901.htmljackliu@jackliu-ThinkPad:~/workspace/recipes/doc/linux$" target="_blank" rel="noopener">CentOs上搭建git服务器</a></p>
+</li>
+</ol>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/git/" rel="tag">#git</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/10/01/人一般为什么浮躁/" rel="prev">如何摆脱浮躁</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/10/01/How-To-Effective-Develop-Program/" rel="next">How To Effective Develop Program</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+
+        
+          <div class="comments" id="comments">
+            
+          </div>
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="https://avatars1.githubusercontent.com/u/32269?v=3&s=460" alt="hyunwoo222" itemprop="image">
+          <p class="site-author-name" itemprop="name">hyunwoo222</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">How To ...</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/hyunwoo222" target="_blank">GitHub</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href target="_blank">Twitter</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href target="_blank">Weibo</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href target="_blank">DouBan</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href target="_blank">ZhiHu</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#转载：CentOS安装Git服务器-Centos-6-4-Git-1-8-2-2-gitosis"><span class="nav-number">1.</span> <span class="nav-text">转载：CentOS安装Git服务器 Centos 6.4 + Git 1.8.2.2 + gitosis</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-查看Linux系统服务器系统版本"><span class="nav-number">1.1.</span> <span class="nav-text">1. 查看Linux系统服务器系统版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-在服务器上安装git及做些操作"><span class="nav-number">1.2.</span> <span class="nav-text">2. 在服务器上安装git及做些操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-在服务器安装gitosis"><span class="nav-number">1.3.</span> <span class="nav-text">3. 在服务器安装gitosis</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-在开发机上-生产密钥并上传到服务器上"><span class="nav-number">1.4.</span> <span class="nav-text">4. 在开发机上,生产密钥并上传到服务器上</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-服务器上生成git用户，使用git用户并初始化gitosis"><span class="nav-number">1.5.</span> <span class="nav-text">5. 服务器上生成git用户，使用git用户并初始化gitosis</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-在个人开发机上导出项目管理"><span class="nav-number">1.6.</span> <span class="nav-text">6. 在个人开发机上导出项目管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-在个人开发机增加及设置管理项目"><span class="nav-number">1.7.</span> <span class="nav-text">7. 在个人开发机增加及设置管理项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-在个人开发机上初始，增加及使用项目test-git"><span class="nav-number">1.8.</span> <span class="nav-text">8. 在个人开发机上初始，增加及使用项目test-git</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-增加协同开发者的公钥key到git服务器"><span class="nav-number">1.9.</span> <span class="nav-text">9. 增加协同开发者的公钥key到git服务器</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright">
+  
+  &copy; &nbsp; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">hyunwoo222</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+    
+
+  
+
+
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>

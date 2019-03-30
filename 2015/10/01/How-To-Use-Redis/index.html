@@ -1,0 +1,666 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head><meta name="generator" content="Hexo 3.8.0">
+  
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5">
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1">
+
+
+    <meta name="description" content="How To ...">
+
+
+
+  <meta name="keywords" content="redis,cache,">
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1">
+
+
+<meta name="description" content="How To Use Redis简介在移动互联网时代，我们面对的是更多的客户端，更低的请求延迟，这当然需要对数据做大量的 Cache 以提高读写速度。 目前业界使用得最多的 Cache 系统主要是 memcached 和 redis。 这两个 Cache 系统都有都有很大的用户群，可以说是比较成熟的解决方案，也是很多系统当前的选择。 什么是RedisRedis是一个开源，先进的key-value存">
+<meta name="keywords" content="redis,cache">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How To Use Redis">
+<meta property="og:url" content="http://www.hanyuse.com/2015/10/01/How-To-Use-Redis/index.html">
+<meta property="og:site_name" content="How To ...">
+<meta property="og:description" content="How To Use Redis简介在移动互联网时代，我们面对的是更多的客户端，更低的请求延迟，这当然需要对数据做大量的 Cache 以提高读写速度。 目前业界使用得最多的 Cache 系统主要是 memcached 和 redis。 这两个 Cache 系统都有都有很大的用户群，可以说是比较成熟的解决方案，也是很多系统当前的选择。 什么是RedisRedis是一个开源，先进的key-value存">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-03-30T14:08:20.278Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="How To Use Redis">
+<meta name="twitter:description" content="How To Use Redis简介在移动互联网时代，我们面对的是更多的客户端，更低的请求延迟，这当然需要对数据做大量的 Cache 以提高读写速度。 目前业界使用得最多的 Cache 系统主要是 memcached 和 redis。 这两个 Cache 系统都有都有很大的用户群，可以说是比较成熟的解决方案，也是很多系统当前的选择。 什么是RedisRedis是一个开源，先进的key-value存">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'post'
+  };
+</script>
+
+  <title> How To Use Redis | How To ... </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">How To ...</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br>
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            <i class="menu-item-icon icon-next-categories"></i> <br>
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            <i class="menu-item-icon icon-next-about"></i> <br>
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br>
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-next-tags"></i> <br>
+            标签
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              How To Use Redis
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-10-01T10:14:22+08:00" content="2015-10-01">
+            2015-10-01
+          </time>
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/Java-Web/" itemprop="url" rel="index">
+                  <span itemprop="name">Java Web</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><h1 id="How-To-Use-Redis"><a href="#How-To-Use-Redis" class="headerlink" title="How To Use Redis"></a>How To Use Redis</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>在移动互联网时代，我们面对的是更多的客户端，更低的请求延迟，这当然需要对数据做大量的 Cache 以提高读写速度。</p>
+<p>目前业界使用得最多的 Cache 系统主要是 memcached 和 redis。 这两个 Cache 系统都有都有很大的用户群，可以说是比较成熟的解决方案，也是很多系统当前的选择。</p>
+<h2 id="什么是Redis"><a href="#什么是Redis" class="headerlink" title="什么是Redis"></a>什么是Redis</h2><p>Redis是一个开源，先进的key-value存储，并用于构建高性能，可扩展的Web应用程序的完美解决方案。</p>
+<p>通常而言目前的数据库分类有几种，包括 SQL/NSQL,，关系数据库，键值数据库等等 等，Redis本质上也是一种键值数据库的，但它在保持键值数据库简单快捷特点的同时，又吸收了部分关系数据库的优点。</p>
+<p>从而使它的位置处于关系数据库和键值数据库之间。</p>
+<a id="more"></a>i<br><br>Redis不仅能保存Strings类型的数据，还能保存Lists类型（有序）和Sets类型（无序）的数据，而且还能完成排序（SORT） 等高级功能，在实现INCR，SETNX等功能的时候，保证了其操作的原子性，除此以外，还支持主从复制等功能。<br><br>## Redis特点<br><br>Redis数据库完全在内存中，使用磁盘仅用于持久性。<br><br>相比许多键值数据存储，Redis拥有一套较为丰富的数据类型。<br><br>Redis可以将数据复制到任意数量的从服务器。<br><br>## Redis 优势<br><br>异常快速：Redis的速度非常快，每秒能执行约11万集合，每秒约81000+条记录。<br><br>支持丰富的数据类型：Redis支持最大多数开发人员已经知道像列表，集合，有序集合，散列数据类型。这使得它非常容易解决各种各样的问题，因为我们知道哪些问题是可以处理通过它的数据类型更好。<br><br>操作都是原子性：所有Redis操作是原子的，这保证了如果两个客户端同时访问的Redis服务器将获得更新后的值。<br><br>多功能实用工具：Redis是一个多实用的工具，可以在多个用例如缓存，消息，队列使用(Redis原生支持发布/订阅)，任何短暂的数据，应用程序，如Web应用程序会话，网页命中计数等。<br><br>## Redis 缺点<br><br>由于是内存数据库，所以，单台机器，存储的数据量，跟机器本身的内存大小。<br><br>虽然redis本身有key过期策略，但是还是需要提前预估和节约内存。如果内存增长过快，需要定期删除数据。<br><br>## Redis 使用<br><br>1. 数据缓存<br>2. Session缓存 跟Shiro整合Sessoion共享<br><br>### Redis 服务器安装配置<br><br>Linux<br><br>安装：<br><br><figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">$</span> wget http:<span class="comment">//download.redis.io/releases/redis-3.2.5.tar.gz</span></span><br><span class="line"><span class="symbol">$</span> tar xzf redis<span class="number">-3.2</span><span class="number">.5</span>.tar.gz</span><br><span class="line"><span class="symbol">$</span> cd redis<span class="number">-3.2</span><span class="number">.5</span></span><br><span class="line"><span class="symbol">$</span> make</span><br><span class="line"></span><br><span class="line">有是make会报错 </span><br><span class="line"></span><br><span class="line">yum install -y gcc g++ gcc-c++ make</span><br><span class="line"></span><br><span class="line">make MALLOC=libc</span><br></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">System<span class="selector-class">.out</span><span class="selector-class">.println</span>()</span><br></pre></td></tr></table></figure>
+<p>配置 ：</p>
+<p> daemonize no =&gt; yes</p>
+<p> bind 127.0.0.1 =&gt; IP地址</p>
+<h3 id="Redis服务器信息"><a href="#Redis服务器信息" class="headerlink" title="Redis服务器信息"></a>Redis服务器信息</h3><p>IP：192.168.1.96<br>PORT：6379<br>Password:redisinpt123</p>
+<p>Redis 位置： /usr/redis/</p>
+<p>Redis conf /usr/redis/redis.conf </p>
+<p>启动Redis: service redisd start stop  restart list </p>
+<h3 id="Java中使用Redis"><a href="#Java中使用Redis" class="headerlink" title="Java中使用Redis"></a>Java中使用Redis</h3><p>Spring Boot 使用Redis服务缓存方式</p>
+<p>Spring Boot 整合Shiro Session共享</p>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p><a href="http://blog.csdn.net/huwei2003/article/details/40426513" target="_blank" rel="noopener">linux下redis的安装及配置启动</a></p>
+<p><a href="http://www.cnblogs.com/wenanry/archive/2012/02/26/2368398.html" target="_blank" rel="noopener">Redis配置参数</a></p>
+<p><a href="https://redisdesktop.com/download" target="_blank" rel="noopener">Redis可视化客户端</a></p>
+<p><a href="http://wklken.me/posts/2013/10/19/redis-base.html#_13" target="_blank" rel="noopener">REDIS基础笔记</a></p>
+<p><a href="http://www.cnblogs.com/softidea/p/5801499.html" target="_blank" rel="noopener">Spring Boot使用redis做数据缓存 1</a></p>
+<p><a href="http://blog.didispace.com/springbootredis/" target="_blank" rel="noopener">Spring Boot使用redis做数据缓存 2</a></p>
+<p><a href="http://www.cnblogs.com/it-cen/p/4984272.html" target="_blank" rel="noopener">用Redis实现分布式锁 与 实现任务队列</a></p>
+<p><a href="http://blog.nosqlfan.com/html/2235.html" target="_blank" rel="noopener">Redis 作者谈使用场景</a></p>
+<p>CentOS 关闭防火墙<br>CentOS 6:</p>
+<p>1） 永久性生效，重启后不会复原</p>
+<p>开启： chkconfig iptables on</p>
+<p>关闭： chkconfig iptables off</p>
+<p>2） 即时生效，重启后复原</p>
+<p>开启： service iptables start</p>
+<p>关闭： service iptables stop</p>
+<p>CentOS 7:</p>
+<p>systemctl start firewalld.service#启动firewall</p>
+<p>systemctl stop firewalld.service#停止firewall</p>
+<p>systemctl disable firewalld.service#禁止firewall开机启动</p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/redis-cache/" rel="tag">#redis,cache</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/10/01/How-To-Effective-Develop-Program/" rel="prev">How To Effective Develop Program</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/10/01/How-To-Use-POIwithExcel/" rel="next">How To Use POI</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+
+        
+          <div class="comments" id="comments">
+            
+          </div>
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="https://avatars1.githubusercontent.com/u/32269?v=3&s=460" alt="hyunwoo222" itemprop="image">
+          <p class="site-author-name" itemprop="name">hyunwoo222</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">How To ...</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/hyunwoo222" target="_blank">GitHub</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href target="_blank">Twitter</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href target="_blank">Weibo</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href target="_blank">DouBan</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href target="_blank">ZhiHu</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#How-To-Use-Redis"><span class="nav-number">1.</span> <span class="nav-text">How To Use Redis</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是Redis"><span class="nav-number">1.2.</span> <span class="nav-text">什么是Redis</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis服务器信息"><span class="nav-number">1.2.1.</span> <span class="nav-text">Redis服务器信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java中使用Redis"><span class="nav-number">1.2.2.</span> <span class="nav-text">Java中使用Redis</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文献"><span class="nav-number">1.3.</span> <span class="nav-text">参考文献</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright">
+  
+  &copy; &nbsp; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">hyunwoo222</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+    
+
+  
+
+
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>
