@@ -47,7 +47,7 @@
 <meta property="og:site_name" content="How To ...">
 <meta property="og:description" content="How To Use Redis简介在移动互联网时代，我们面对的是更多的客户端，更低的请求延迟，这当然需要对数据做大量的 Cache 以提高读写速度。 目前业界使用得最多的 Cache 系统主要是 memcached 和 redis。 这两个 Cache 系统都有都有很大的用户群，可以说是比较成熟的解决方案，也是很多系统当前的选择。 什么是RedisRedis是一个开源，先进的key-value存">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-30T14:08:20.278Z">
+<meta property="og:updated_time" content="2019-03-30T15:23:53.941Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="How To Use Redis">
 <meta name="twitter:description" content="How To Use Redis简介在移动互联网时代，我们面对的是更多的客户端，更低的请求延迟，这当然需要对数据做大量的 Cache 以提高读写速度。 目前业界使用得最多的 Cache 系统主要是 memcached 和 redis。 这两个 Cache 系统都有都有很大的用户群，可以说是比较成熟的解决方案，也是很多系统当前的选择。 什么是RedisRedis是一个开源，先进的key-value存">
@@ -223,8 +223,25 @@
 <h2 id="什么是Redis"><a href="#什么是Redis" class="headerlink" title="什么是Redis"></a>什么是Redis</h2><p>Redis是一个开源，先进的key-value存储，并用于构建高性能，可扩展的Web应用程序的完美解决方案。</p>
 <p>通常而言目前的数据库分类有几种，包括 SQL/NSQL,，关系数据库，键值数据库等等 等，Redis本质上也是一种键值数据库的，但它在保持键值数据库简单快捷特点的同时，又吸收了部分关系数据库的优点。</p>
 <p>从而使它的位置处于关系数据库和键值数据库之间。</p>
-<a id="more"></a>i<br><br>Redis不仅能保存Strings类型的数据，还能保存Lists类型（有序）和Sets类型（无序）的数据，而且还能完成排序（SORT） 等高级功能，在实现INCR，SETNX等功能的时候，保证了其操作的原子性，除此以外，还支持主从复制等功能。<br><br>## Redis特点<br><br>Redis数据库完全在内存中，使用磁盘仅用于持久性。<br><br>相比许多键值数据存储，Redis拥有一套较为丰富的数据类型。<br><br>Redis可以将数据复制到任意数量的从服务器。<br><br>## Redis 优势<br><br>异常快速：Redis的速度非常快，每秒能执行约11万集合，每秒约81000+条记录。<br><br>支持丰富的数据类型：Redis支持最大多数开发人员已经知道像列表，集合，有序集合，散列数据类型。这使得它非常容易解决各种各样的问题，因为我们知道哪些问题是可以处理通过它的数据类型更好。<br><br>操作都是原子性：所有Redis操作是原子的，这保证了如果两个客户端同时访问的Redis服务器将获得更新后的值。<br><br>多功能实用工具：Redis是一个多实用的工具，可以在多个用例如缓存，消息，队列使用(Redis原生支持发布/订阅)，任何短暂的数据，应用程序，如Web应用程序会话，网页命中计数等。<br><br>## Redis 缺点<br><br>由于是内存数据库，所以，单台机器，存储的数据量，跟机器本身的内存大小。<br><br>虽然redis本身有key过期策略，但是还是需要提前预估和节约内存。如果内存增长过快，需要定期删除数据。<br><br>## Redis 使用<br><br>1. 数据缓存<br>2. Session缓存 跟Shiro整合Sessoion共享<br><br>### Redis 服务器安装配置<br><br>Linux<br><br>安装：<br><br><figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">$</span> wget http:<span class="comment">//download.redis.io/releases/redis-3.2.5.tar.gz</span></span><br><span class="line"><span class="symbol">$</span> tar xzf redis<span class="number">-3.2</span><span class="number">.5</span>.tar.gz</span><br><span class="line"><span class="symbol">$</span> cd redis<span class="number">-3.2</span><span class="number">.5</span></span><br><span class="line"><span class="symbol">$</span> make</span><br><span class="line"></span><br><span class="line">有是make会报错 </span><br><span class="line"></span><br><span class="line">yum install -y gcc g++ gcc-c++ make</span><br><span class="line"></span><br><span class="line">make MALLOC=libc</span><br></pre></td></tr></table></figure>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">System<span class="selector-class">.out</span><span class="selector-class">.println</span>()</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>Redis不仅能保存Strings类型的数据，还能保存Lists类型（有序）和Sets类型（无序）的数据，而且还能完成排序（SORT） 等高级功能，在实现INCR，SETNX等功能的时候，保证了其操作的原子性，除此以外，还支持主从复制等功能。</p>
+<h2 id="Redis特点"><a href="#Redis特点" class="headerlink" title="Redis特点"></a>Redis特点</h2><p>Redis数据库完全在内存中，使用磁盘仅用于持久性。</p>
+<p>相比许多键值数据存储，Redis拥有一套较为丰富的数据类型。</p>
+<p>Redis可以将数据复制到任意数量的从服务器。</p>
+<h2 id="Redis优势"><a href="#Redis优势" class="headerlink" title="Redis优势"></a>Redis优势</h2><p>异常快速：Redis的速度非常快，每秒能执行约11万集合，每秒约81000+条记录。</p>
+<p>支持丰富的数据类型：Redis支持最大多数开发人员已经知道像列表，集合，有序集合，散列数据类型。这使得它非常容易解决各种各样的问题，因为我们知道哪些问题是可以处理通过它的数据类型更好。</p>
+<p>操作都是原子性：所有Redis操作是原子的，这保证了如果两个客户端同时访问的Redis服务器将获得更新后的值。</p>
+<p>多功能实用工具：Redis是一个多实用的工具，可以在多个用例如缓存，消息，队列使用(Redis原生支持发布/订阅)，任何短暂的数据，应用程序，如Web应用程序会话，网页命中计数等。</p>
+<h2 id="Redis缺点"><a href="#Redis缺点" class="headerlink" title="Redis缺点"></a>Redis缺点</h2><p>由于是内存数据库，所以，单台机器，存储的数据量，跟机器本身的内存大小。</p>
+<p>虽然redis本身有key过期策略，但是还是需要提前预估和节约内存。如果内存增长过快，需要定期删除数据。</p>
+<h2 id="Redis使用"><a href="#Redis使用" class="headerlink" title="Redis使用"></a>Redis使用</h2><ol>
+<li>数据缓存</li>
+<li>Session缓存 跟Shiro整合Sessoion共享</li>
+</ol>
+<h3 id="Redis服务器安装配置"><a href="#Redis服务器安装配置" class="headerlink" title="Redis服务器安装配置"></a>Redis服务器安装配置</h3><p>Linux</p>
+<p>安装：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ wget http://download.redis.io/releases/redis-3.2.5.tar.gz</span><br><span class="line">$ tar xzf redis-3.2.5.tar.gz</span><br><span class="line">$ cd redis-3.2.5</span><br><span class="line">$ make</span><br><span class="line"></span><br><span class="line">有是make会报错 </span><br><span class="line"></span><br><span class="line">yum install -y gcc g++ gcc-c++ make</span><br><span class="line"></span><br><span class="line">make MALLOC=libc</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">System.out.println()</span><br></pre></td></tr></table></figure>
 <p>配置 ：</p>
 <p> daemonize no =&gt; yes</p>
 <p> bind 127.0.0.1 =&gt; IP地址</p>
@@ -270,13 +287,13 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/10/01/How-To-Effective-Develop-Program/" rel="prev">How To Effective Develop Program</a>
+              <a href="/2015/10/01/How-To-Use-SpringBootShiro/" rel="prev">How To Use SpringBootWithShiro</a>
             
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/10/01/How-To-Use-POIwithExcel/" rel="next">How To Use POI</a>
+              <a href="/2015/09/29/How-To-Use-Scp-Commond/" rel="next">How to commond scp upload aliyun</a>
             
           </div>
         </div>
@@ -338,7 +355,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-count">12</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -352,7 +369,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-count">11</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
@@ -402,7 +419,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#How-To-Use-Redis"><span class="nav-number">1.</span> <span class="nav-text">How To Use Redis</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是Redis"><span class="nav-number">1.2.</span> <span class="nav-text">什么是Redis</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis服务器信息"><span class="nav-number">1.2.1.</span> <span class="nav-text">Redis服务器信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java中使用Redis"><span class="nav-number">1.2.2.</span> <span class="nav-text">Java中使用Redis</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文献"><span class="nav-number">1.3.</span> <span class="nav-text">参考文献</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#How-To-Use-Redis"><span class="nav-number">1.</span> <span class="nav-text">How To Use Redis</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是Redis"><span class="nav-number">1.2.</span> <span class="nav-text">什么是Redis</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis特点"><span class="nav-number">1.3.</span> <span class="nav-text">Redis特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis优势"><span class="nav-number">1.4.</span> <span class="nav-text">Redis优势</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis缺点"><span class="nav-number">1.5.</span> <span class="nav-text">Redis缺点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis使用"><span class="nav-number">1.6.</span> <span class="nav-text">Redis使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis服务器安装配置"><span class="nav-number">1.6.1.</span> <span class="nav-text">Redis服务器安装配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis服务器信息"><span class="nav-number">1.6.2.</span> <span class="nav-text">Redis服务器信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java中使用Redis"><span class="nav-number">1.6.3.</span> <span class="nav-text">Java中使用Redis</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文献"><span class="nav-number">1.7.</span> <span class="nav-text">参考文献</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>

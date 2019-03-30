@@ -47,12 +47,10 @@
 <meta property="og:site_name" content="How To ...">
 <meta property="og:description" content="Spring Boot Shiro 权限管理Shiro 简介Shiro是Apache下的一个开源项目，我们称之为Apache Shiro。它是一个很易用与Java项目的的安全框架，提供了认证、授权、加密、会话管理， 与 Spring Security 一样都是做一个权限的安全框架，但是与Spring Security 相比，在于 Shiro 使用了比较简单易懂易于使用的授权方式。 Apache S">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://dl2.iteye.com/upload/attachment/0093/9790/5e0e9b41-0cca-367f-8c87-a8398910e7a6.png">
-<meta property="og:updated_time" content="2019-03-30T14:08:20.281Z">
+<meta property="og:updated_time" content="2019-03-30T15:23:39.331Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="How To Use SpringBootWithShiro">
 <meta name="twitter:description" content="Spring Boot Shiro 权限管理Shiro 简介Shiro是Apache下的一个开源项目，我们称之为Apache Shiro。它是一个很易用与Java项目的的安全框架，提供了认证、授权、加密、会话管理， 与 Spring Security 一样都是做一个权限的安全框架，但是与Spring Security 相比，在于 Shiro 使用了比较简单易懂易于使用的授权方式。 Apache S">
-<meta name="twitter:image" content="http://dl2.iteye.com/upload/attachment/0093/9790/5e0e9b41-0cca-367f-8c87-a8398910e7a6.png">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -222,8 +220,7 @@
       
         <span itemprop="articleBody"><h1 id="Spring-Boot-Shiro-权限管理"><a href="#Spring-Boot-Shiro-权限管理" class="headerlink" title="Spring Boot Shiro 权限管理"></a>Spring Boot Shiro 权限管理</h1><h2 id="Shiro-简介"><a href="#Shiro-简介" class="headerlink" title="Shiro 简介"></a>Shiro 简介</h2><p>Shiro是Apache下的一个开源项目，我们称之为Apache Shiro。它是一个很易用与Java项目的的安全框架，提供了认证、授权、加密、会话管理，</p>
 <p>与 Spring Security 一样都是做一个权限的安全框架，但是与Spring Security 相比，在于 Shiro 使用了比较简单易懂易于使用的授权方式。</p>
-<p>Apache Shiro 的三大核心组件 </p>
-<ul>
+<h2 id="Apache-Shiro-的三大核心组件"><a href="#Apache-Shiro-的三大核心组件" class="headerlink" title="Apache Shiro 的三大核心组件"></a>Apache Shiro 的三大核心组件</h2><ul>
 <li><p>Subject 当前用户操作 </p>
 </li>
 <li><p>SecurityManager 用于管理所有的Subject </p>
@@ -233,9 +230,7 @@
 </ul>
 <p>我们需要实现Realms的Authentication 和 Authorization。其中 Authentication 是用来验证用户身份，Authorization 是授权访问控制，用于对用户进行的操作授权，证明该用户是否允许进行当前操作，如访问某个链接，某个资源文件等。</p>
 <a id="more"></a>
-<p><img src="http://dl2.iteye.com/upload/attachment/0093/9790/5e0e9b41-0cca-367f-8c87-a8398910e7a6.png" alt="Shiro 流程"></p>
-<p>Shiro主要组件还包括： </p>
-<ul>
+<h2 id="Shiro主要组件还包括："><a href="#Shiro主要组件还包括：" class="headerlink" title="Shiro主要组件还包括："></a>Shiro主要组件还包括：</h2><ul>
 <li><p>Authenticator ：认证就是核实用户身份的过程。这个过程的常见例子是大家都熟悉的“用户/密码”组合。多数用户在登录软件系统时，通常提供自己的用户名（当事人）和支持他们的密码（证书）。如果存储在系统中的密码（或密码表示）与用户提供的匹配，他们就被认为通过认证。 </p>
 </li>
 <li><p>Authorizer ：授权实质上就是访问控制 - 控制用户能够访问应用中的哪些内容，比如资源、Web页面等等。 </p>
@@ -273,7 +268,7 @@
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/10/01/How-To-Use-BeanValidation/" rel="next">How To Use BeanValidation</a>
+              <a href="/2015/10/01/How-To-Use-Redis/" rel="next">How To Use Redis</a>
             
           </div>
         </div>
@@ -335,7 +330,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-count">12</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -349,7 +344,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-count">11</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
@@ -399,7 +394,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Spring-Boot-Shiro-权限管理"><span class="nav-number">1.</span> <span class="nav-text">Spring Boot Shiro 权限管理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Shiro-简介"><span class="nav-number">1.1.</span> <span class="nav-text">Shiro 简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">1.2.</span> <span class="nav-text">参考</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Spring-Boot-Shiro-权限管理"><span class="nav-number">1.</span> <span class="nav-text">Spring Boot Shiro 权限管理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Shiro-简介"><span class="nav-number">1.1.</span> <span class="nav-text">Shiro 简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Apache-Shiro-的三大核心组件"><span class="nav-number">1.2.</span> <span class="nav-text">Apache Shiro 的三大核心组件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Shiro主要组件还包括："><span class="nav-number">1.3.</span> <span class="nav-text">Shiro主要组件还包括：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">1.4.</span> <span class="nav-text">参考</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>

@@ -30,7 +30,7 @@
 
 
 
-  <meta name="keywords" content="JQeury,">
+  <meta name="keywords" content="jQeury,">
 
 
 
@@ -39,18 +39,18 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1">
 
 
-<meta name="description" content="How to Use JQuery1. jQuery的加载一般采用以下方式 加载jQuery库   //表示同时支持http协议和https协议。">
-<meta name="keywords" content="JQeury">
+<meta name="description" content="How to Use jQueryjQuery的加载一般采用以下方式 加载jQuery库   //表示同时支持http协议和https协议。">
+<meta name="keywords" content="jQeury">
 <meta property="og:type" content="article">
 <meta property="og:title" content="How To JQeury">
 <meta property="og:url" content="http://www.hanyuse.com/2015/10/01/How-To-Use-JQeury/index.html">
 <meta property="og:site_name" content="How To ...">
-<meta property="og:description" content="How to Use JQuery1. jQuery的加载一般采用以下方式 加载jQuery库   //表示同时支持http协议和https协议。">
+<meta property="og:description" content="How to Use jQueryjQuery的加载一般采用以下方式 加载jQuery库   //表示同时支持http协议和https协议。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-30T14:08:20.276Z">
+<meta property="og:updated_time" content="2019-03-30T15:30:02.945Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="How To JQeury">
-<meta name="twitter:description" content="How to Use JQuery1. jQuery的加载一般采用以下方式 加载jQuery库   //表示同时支持http协议和https协议。">
+<meta name="twitter:description" content="How to Use jQueryjQuery的加载一般采用以下方式 加载jQuery库   //表示同时支持http协议和https协议。">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -218,48 +218,15 @@
       
 
       
-        <span itemprop="articleBody"><h1 id="How-to-Use-JQuery"><a href="#How-to-Use-JQuery" class="headerlink" title="How to Use JQuery"></a>How to Use JQuery</h1><h2 id="1-jQuery的加载"><a href="#1-jQuery的加载" class="headerlink" title="1. jQuery的加载"></a>1. jQuery的加载</h2><p>一般采用以下方式 加载jQuery库   //表示同时支持http协议和https协议。</p>
+        <span itemprop="articleBody"><h1 id="How-to-Use-jQuery"><a href="#How-to-Use-jQuery" class="headerlink" title="How to Use jQuery"></a>How to Use jQuery</h1><h2 id="jQuery的加载"><a href="#jQuery的加载" class="headerlink" title="jQuery的加载"></a>jQuery的加载</h2><p>一般采用以下方式 加载jQuery库   //表示同时支持http协议和https协议。</p>
 <a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;text/javascript&quot;</span><br><span class="line">  src=&quot;//code.jquery.com/jquery-1.11.0.min.js&quot;&gt;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">window.jQuery ||</span><br><span class="line">  document.write(</span><br><span class="line">    &apos;&lt;script src=&quot;js/jquery-1.11.0.min.js&quot; type=&quot;text/javascript&quot;&gt;&lt;\/script&gt;&apos;</span><br><span class="line">  );</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">```    </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## 2. jQuery基础</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">jQuery常用选择器</span><br></pre></td></tr></table></figure>
-<p>$(“#uid”); // 选取id属性为”uid”的单个元素<br>$(“p”); // 选取所有的p元素<br>$(“.test”); // 选择所有带有CSS类名”test”的元素<br>$(“[name=books]”); // 选择所有name属性为”books”的元素</p>
-<p>// 多个选择器以空格或指定符号隔开，将匹配与前者具有指定关系的最后一个选择器所表示的元素<br>$(“#uid span”); // 选择id为”uid”的元素的所有后代span元素<br>$(“p &gt; span”); // 选择p元素的所有子代span元素<br>$(“div + p”); // 选择div元素后面紧邻的同辈p元素<br>$(“div p span”); // 选择div元素的所有后代p元素的后代span元素</p>
-<p>// 多个选择器之间没有空格，将匹配同时满足这些选择器条件的元素<br>$(“p#uid”); // 选择id属性为”uid”的p元素<br>$(“div.foo”); // 选择所有带有CSS类名”foo”的div元素<br>$(“.foo.bar”); // 选择所有同时带有CSS类名”foo”和”bar”的元素<br>$(“input[name=books][id]”); // 选择所有name属性为”books”并且具备id属性的元素</p>
-<p>// jQuery特有的选择器，当然也可以和其他选择器任意组合使用<br>$(“:checkbox”); // 选取所有的checkbox元素<br>$(“:text”); // 选取所有type为text的input元素<br>$(“:password”); // 选取所有type为password的input元素<br>$(“:checked”); // 选取所有选中的radio、checkbox、option元素<br>$(“:selected”); // 选取所有选中的option元素<br>$(“:input”); // 选取所有的表单控件元素(所有input、textarea、select、button元素)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">jQuery元素帅选</span><br></pre></td></tr></table></figure>
-<p>// 以下方法都返回一个新的jQuery对象，他们包含筛选到的元素<br>$(“ul li”).eq(1); // 选取ul li中匹配的索引顺序为1的元素(也就是第2个li元素)<br>$(“ul li”).first(); // 选取ul li中匹配的第一个元素<br>$(“ul li”).last(); // 选取ul li中匹配的最后一个元素<br>$(“ul li”).slice(1, 4); // 选取第2 ~ 4个元素<br>$(“ul li”).filter(“:even”); // 选取ul li中所有奇数顺序的元素<br>$(“div”).find(“p”); // 选取所有div元素的所有后代p元素<br>$(“div”).children(); // 选取所有div元素的所有子代元素<br>$(“div”).children(“p”); // 选取所有div元素的所有子代p元素<br>$(“span”).parent(); // 选取所有span元素的父元素<br>$(“span”).parent(“.foo.bar”); // 选取所有span元素的带有CSS类名”foo”和”bar”的父元素<br>$(“#uid”).prev(); // 选取id为uid的元素之前紧邻的同辈元素<br>$(“#uid”).next(); // 选取id为uid的元素之后紧邻的同辈元素</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">jQuery核心：DOM操作</span><br></pre></td></tr></table></figure>
-<p>// selector 表示具体的选择器</p>
-<p>$(“selector”).val(); // 获取第一个匹配元素的value值(一般用于表单控件)<br>$(“selector”).val(“Hello”); // 设置所有匹配元素的value值为”Hello”</p>
-<p>$(“selector”).html(); // 获取第一个匹配元素的innerHTML值<br>$(“selector”).html(“Hello”); // 设置所有匹配元素的innerHTML值为”Hello”</p>
-<p>$(“selector”).text(); // 获取第一个匹配元素的innerText值(jQuery已进行兼容处理)<br>$(“selector”).text(“Hello”); // 设置所有匹配元素的innerText值为”Hello”</p>
-<p>$(“selector”).attr(“class”); // 获取第一个匹配元素class属性<br>$(“selector”).attr(“class”, “code”); // 设置所有匹配元素的class属性为”code”<br>$(“selector”).removeAttr(“class”); // 移除所有匹配元素的class属性</p>
-<p>$(“selector”).prop(“checked”); // 获取第一个匹配元素的checked属性值<br>$(“selector”).prop(“checked”, true); // 设置所有匹配元素的checked属性值为true(意即选中所有匹配的复选框或单选框)<br>$(“selector”).removeProp(“className”); // 移除所有匹配元素的className属性</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">文档处理</span><br></pre></td></tr></table></figure>
-<p>// 以下$A均表示当前jQuery对象，$B可以是选择器字符串、html字符串、DOM元素、jQuery对象</p>
-<p>$A.before( $B ); // 在$A之前插入$B<br>$A.after( $B ); // 在$A之后插入$B</p>
-<p>$A.insertBefore( $B ); // 将$A插入到$B之前的位置<br>$A.insertAfter( $B ); // 将$A插入到$B之后的位置</p>
-<p>$A.append( $B ); // 在$A内部的末尾位置追加$B<br>$A.appendTo( $B ); // 将$A追加到$B内部的末尾位置</p>
-<p>$A.prepend( $B ); // 在$A内部的开头位置追加$B<br>$A.prependTo( $B ); // 将$A追加到$B内部的开头位置</p>
-<p>$A.replaceAll( $B ); // 用$A替换$B<br>$A.replaceWith( $B ); // 用$B替换$A</p>
-<p>$A.wrap( $B ); // 在$A的外侧包裹$B<br>$A.unwrap( ); // 只移除$A的父元素的标签<br>$A.wrapAll( $B ); // 在整个$A的外侧用单个$B将其包裹起来<br>$A.wrapInner( $B ); // 在$A的内侧包裹$B</p>
-<p>$A.empty(); // 清空$A的所有内容<br>$A.remove(); // 删除$A及其绑定的事件、附加数据等<br>$A.detach(); // 删除$A，但保留其绑定的事件、附加数据等</p>
-<p>$A.clone(); // 克隆一个$A</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">CSS操作</span><br></pre></td></tr></table></figure>
-<p>$(“selector”).css(“margin-left”); // 获取第一个匹配元素的margin-left的属性值<br>$(“selector”).css(“marginLeft”); // 与上一行代码作用相同，css()支持这两种写法</p>
-<p>$(“selector”).css(“marginLeft”, 15); // 设置所有匹配元素的margin-left为15px(数字的默认单位均为px)<br>$(“selector”).css( { marginLeft: 15, color: “red”, fontSize: “14px”} ); // 一次性设置所有匹配元素的多个样式属性</p>
-<p>$(“selector”).css( “marginLeft”, “”); // 设为空字符串，则表示删除该样式属性</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">动画效果</span><br></pre></td></tr></table></figure>
-<p>$(“selector”).show(); // 显示隐藏的元素，默认不带过渡动画效果<br>$(“selector”).show( 400 ); // 显示隐藏的元素，带有400毫秒的过渡动画效果<br>$(“selector”).show( “fast” ); // 显示隐藏的元素，带有200毫秒的过渡动画效果<br>$(“selector”).show( “slow” ); // 显示隐藏的元素，带有600毫秒的过渡动画效果</p>
-<p>$(“selector”).hide(); // 隐藏显示的元素，其用法与show()相同<br>$(“selector”).toggle(); // 切换显示/隐藏元素(如果显示就隐藏，隐藏就显示)，其用法与show()类似</p>
-<p>/<em> 下面的slide</em>、fade*系列方法与上面的show()、hide()、toggle()等方法作用相同，</p>
-<ul>
-<li>用法也类似，只是带有不同的动画效果<br>*/</li>
-</ul>
-<p>$(“selector”).slideDown(); // 显示隐藏的元素，带有向下滑动的过渡动画效果<br>$(“selector”).slideUp(); // 隐藏显示的元素，带有向上滑动的过渡动画效果<br>$(“selector”).slideToggle(); // 切换显示/隐藏的元素，带有向上/下滑动的过渡动画效果</p>
-<p>$(“selector”).fadeIn(); // 显示隐藏的元素，带有淡入的过渡动画效果<br>$(“selector”).fadeOut(); // 隐藏显示的元素，带有淡出的过渡动画效果<br>$(“selector”).fadeToggle(); // 隐藏显示的元素，带有淡出的过渡动画效果</p>
-<p>// 设置所有匹配元素的css样式”width: 200px; height: 100px”，并执行一个当前样式到指定样式的过渡动画效果<br>// 动画的执行时间为 1000 毫秒<br>$(“selector”).animate( { width: “200px”, height: “100px” }, 1000 );</p>
-<p><code>`</code></p>
-<p>jQuery核心：事件处理</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;text/javascript&quot;</span><br><span class="line">  src=&quot;//code.jquery.com/jquery-1.11.0.min.js&quot;&gt;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">window.jQuery ||</span><br><span class="line">  document.write(</span><br><span class="line">    &apos;&lt;script src=&quot;js/jquery-1.11.0.min.js&quot; type=&quot;text/javascript&quot;&gt;&lt;\/script&gt;&apos;</span><br><span class="line">  );</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="jQuery基础"><a href="#jQuery基础" class="headerlink" title="jQuery基础"></a>jQuery基础</h2><h3 id="jQuery常用选择器"><a href="#jQuery常用选择器" class="headerlink" title="jQuery常用选择器"></a>jQuery常用选择器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">$(&quot;#uid&quot;); // 选取id属性为&quot;uid&quot;的单个元素</span><br><span class="line">$(&quot;p&quot;); // 选取所有的p元素</span><br><span class="line">$(&quot;.test&quot;); // 选择所有带有CSS类名&quot;test&quot;的元素</span><br><span class="line">$(&quot;[name=books]&quot;); // 选择所有name属性为&quot;books&quot;的元素</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 多个选择器以空格或指定符号隔开，将匹配与前者具有指定关系的最后一个选择器所表示的元素</span><br><span class="line">$(&quot;#uid span&quot;); // 选择id为&quot;uid&quot;的元素的所有后代span元素</span><br><span class="line">$(&quot;p &gt; span&quot;); // 选择p元素的所有子代span元素</span><br><span class="line">$(&quot;div + p&quot;); // 选择div元素后面紧邻的同辈p元素</span><br><span class="line">$(&quot;div p span&quot;); // 选择div元素的所有后代p元素的后代span元素</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 多个选择器之间没有空格，将匹配同时满足这些选择器条件的元素</span><br><span class="line">$(&quot;p#uid&quot;); // 选择id属性为&quot;uid&quot;的p元素</span><br><span class="line">$(&quot;div.foo&quot;); // 选择所有带有CSS类名&quot;foo&quot;的div元素</span><br><span class="line">$(&quot;.foo.bar&quot;); // 选择所有同时带有CSS类名&quot;foo&quot;和&quot;bar&quot;的元素</span><br><span class="line">$(&quot;input[name=books][id]&quot;); // 选择所有name属性为&quot;books&quot;并且具备id属性的元素</span><br><span class="line"></span><br><span class="line">// jQuery特有的选择器，当然也可以和其他选择器任意组合使用</span><br><span class="line">$(&quot;:checkbox&quot;); // 选取所有的checkbox元素</span><br><span class="line">$(&quot;:text&quot;); // 选取所有type为text的input元素</span><br><span class="line">$(&quot;:password&quot;); // 选取所有type为password的input元素</span><br><span class="line">$(&quot;:checked&quot;); // 选取所有选中的radio、checkbox、option元素</span><br><span class="line">$(&quot;:selected&quot;); // 选取所有选中的option元素</span><br><span class="line">$(&quot;:input&quot;); // 选取所有的表单控件元素(所有input、textarea、select、button元素)</span><br></pre></td></tr></table></figure>
+<h3 id="jQuery元素帅选"><a href="#jQuery元素帅选" class="headerlink" title="jQuery元素帅选"></a>jQuery元素帅选</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">// 以下方法都返回一个新的jQuery对象，他们包含筛选到的元素</span><br><span class="line">$(&quot;ul li&quot;).eq(1); // 选取ul li中匹配的索引顺序为1的元素(也就是第2个li元素)</span><br><span class="line">$(&quot;ul li&quot;).first(); // 选取ul li中匹配的第一个元素</span><br><span class="line">$(&quot;ul li&quot;).last(); // 选取ul li中匹配的最后一个元素</span><br><span class="line">$(&quot;ul li&quot;).slice(1, 4); // 选取第2 ~ 4个元素</span><br><span class="line">$(&quot;ul li&quot;).filter(&quot;:even&quot;); // 选取ul li中所有奇数顺序的元素</span><br><span class="line">$(&quot;div&quot;).find(&quot;p&quot;); // 选取所有div元素的所有后代p元素</span><br><span class="line">$(&quot;div&quot;).children(); // 选取所有div元素的所有子代元素</span><br><span class="line">$(&quot;div&quot;).children(&quot;p&quot;); // 选取所有div元素的所有子代p元素</span><br><span class="line">$(&quot;span&quot;).parent(); // 选取所有span元素的父元素</span><br><span class="line">$(&quot;span&quot;).parent(&quot;.foo.bar&quot;); // 选取所有span元素的带有CSS类名&quot;foo&quot;和&quot;bar&quot;的父元素</span><br><span class="line">$(&quot;#uid&quot;).prev(); // 选取id为uid的元素之前紧邻的同辈元素</span><br><span class="line">$(&quot;#uid&quot;).next(); // 选取id为uid的元素之后紧邻的同辈元素</span><br></pre></td></tr></table></figure>
+<h3 id="jQuery核心：DOM操作"><a href="#jQuery核心：DOM操作" class="headerlink" title="jQuery核心：DOM操作"></a>jQuery核心：DOM操作</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">// selector 表示具体的选择器</span><br><span class="line"></span><br><span class="line">$(&quot;selector&quot;).val(); // 获取第一个匹配元素的value值(一般用于表单控件)</span><br><span class="line">$(&quot;selector&quot;).val(&quot;Hello&quot;); // 设置所有匹配元素的value值为&quot;Hello&quot;</span><br><span class="line"></span><br><span class="line">$(&quot;selector&quot;).html(); // 获取第一个匹配元素的innerHTML值</span><br><span class="line">$(&quot;selector&quot;).html(&quot;Hello&quot;); // 设置所有匹配元素的innerHTML值为&quot;Hello&quot;</span><br><span class="line"></span><br><span class="line">$(&quot;selector&quot;).text(); // 获取第一个匹配元素的innerText值(jQuery已进行兼容处理)</span><br><span class="line">$(&quot;selector&quot;).text(&quot;Hello&quot;); // 设置所有匹配元素的innerText值为&quot;Hello&quot;</span><br><span class="line"></span><br><span class="line">$(&quot;selector&quot;).attr(&quot;class&quot;); // 获取第一个匹配元素class属性</span><br><span class="line">$(&quot;selector&quot;).attr(&quot;class&quot;, &quot;code&quot;); // 设置所有匹配元素的class属性为&quot;code&quot;</span><br><span class="line">$(&quot;selector&quot;).removeAttr(&quot;class&quot;); // 移除所有匹配元素的class属性</span><br><span class="line"></span><br><span class="line">$(&quot;selector&quot;).prop(&quot;checked&quot;); // 获取第一个匹配元素的checked属性值</span><br><span class="line">$(&quot;selector&quot;).prop(&quot;checked&quot;, true); // 设置所有匹配元素的checked属性值为true(意即选中所有匹配的复选框或单选框)</span><br><span class="line">$(&quot;selector&quot;).removeProp(&quot;className&quot;); // 移除所有匹配元素的className属性</span><br></pre></td></tr></table></figure>
+<h3 id="文档处理"><a href="#文档处理" class="headerlink" title="文档处理"></a>文档处理</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">// 以下$A均表示当前jQuery对象，$B可以是选择器字符串、html字符串、DOM元素、jQuery对象</span><br><span class="line"></span><br><span class="line">$A.before( $B ); // 在$A之前插入$B</span><br><span class="line">$A.after( $B ); // 在$A之后插入$B</span><br><span class="line"></span><br><span class="line">$A.insertBefore( $B ); // 将$A插入到$B之前的位置</span><br><span class="line">$A.insertAfter( $B ); // 将$A插入到$B之后的位置</span><br><span class="line"></span><br><span class="line">$A.append( $B ); // 在$A内部的末尾位置追加$B</span><br><span class="line">$A.appendTo( $B ); // 将$A追加到$B内部的末尾位置</span><br><span class="line"></span><br><span class="line">$A.prepend( $B ); // 在$A内部的开头位置追加$B</span><br><span class="line">$A.prependTo( $B ); // 将$A追加到$B内部的开头位置</span><br><span class="line"></span><br><span class="line">$A.replaceAll( $B ); // 用$A替换$B</span><br><span class="line">$A.replaceWith( $B ); // 用$B替换$A</span><br><span class="line"></span><br><span class="line">$A.wrap( $B ); // 在$A的外侧包裹$B</span><br><span class="line">$A.unwrap( ); // 只移除$A的父元素的标签</span><br><span class="line">$A.wrapAll( $B ); // 在整个$A的外侧用单个$B将其包裹起来</span><br><span class="line">$A.wrapInner( $B ); // 在$A的内侧包裹$B</span><br><span class="line"></span><br><span class="line">$A.empty(); // 清空$A的所有内容</span><br><span class="line">$A.remove(); // 删除$A及其绑定的事件、附加数据等</span><br><span class="line">$A.detach(); // 删除$A，但保留其绑定的事件、附加数据等</span><br><span class="line"></span><br><span class="line">$A.clone(); // 克隆一个$A</span><br></pre></td></tr></table></figure>
+<h3 id="CSS操作"><a href="#CSS操作" class="headerlink" title="CSS操作"></a>CSS操作</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$(&quot;selector&quot;).css(&quot;margin-left&quot;); // 获取第一个匹配元素的margin-left的属性值</span><br><span class="line">$(&quot;selector&quot;).css(&quot;marginLeft&quot;); // 与上一行代码作用相同，css()支持这两种写法</span><br><span class="line"></span><br><span class="line">$(&quot;selector&quot;).css(&quot;marginLeft&quot;, 15); // 设置所有匹配元素的margin-left为15px(数字的默认单位均为px)</span><br><span class="line">$(&quot;selector&quot;).css( &#123; marginLeft: 15, color: &quot;red&quot;, fontSize: &quot;14px&quot;&#125; ); // 一次性设置所有匹配元素的多个样式属性</span><br><span class="line"></span><br><span class="line">$(&quot;selector&quot;).css( &quot;marginLeft&quot;, &quot;&quot;); // 设为空字符串，则表示删除该样式属性</span><br></pre></td></tr></table></figure>
+<h3 id="动画效果"><a href="#动画效果" class="headerlink" title="动画效果"></a>动画效果</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">$(&quot;selector&quot;).show(); // 显示隐藏的元素，默认不带过渡动画效果</span><br><span class="line">$(&quot;selector&quot;).show( 400 ); // 显示隐藏的元素，带有400毫秒的过渡动画效果</span><br><span class="line">$(&quot;selector&quot;).show( &quot;fast&quot; ); // 显示隐藏的元素，带有200毫秒的过渡动画效果</span><br><span class="line">$(&quot;selector&quot;).show( &quot;slow&quot; ); // 显示隐藏的元素，带有600毫秒的过渡动画效果</span><br><span class="line"></span><br><span class="line">$(&quot;selector&quot;).hide(); // 隐藏显示的元素，其用法与show()相同</span><br><span class="line">$(&quot;selector&quot;).toggle(); // 切换显示/隐藏元素(如果显示就隐藏，隐藏就显示)，其用法与show()类似</span><br><span class="line"></span><br><span class="line">/* 下面的slide*、fade*系列方法与上面的show()、hide()、toggle()等方法作用相同，</span><br><span class="line"> * 用法也类似，只是带有不同的动画效果</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">$(&quot;selector&quot;).slideDown(); // 显示隐藏的元素，带有向下滑动的过渡动画效果</span><br><span class="line">$(&quot;selector&quot;).slideUp(); // 隐藏显示的元素，带有向上滑动的过渡动画效果</span><br><span class="line">$(&quot;selector&quot;).slideToggle(); // 切换显示/隐藏的元素，带有向上/下滑动的过渡动画效果</span><br><span class="line"></span><br><span class="line">$(&quot;selector&quot;).fadeIn(); // 显示隐藏的元素，带有淡入的过渡动画效果</span><br><span class="line">$(&quot;selector&quot;).fadeOut(); // 隐藏显示的元素，带有淡出的过渡动画效果</span><br><span class="line">$(&quot;selector&quot;).fadeToggle(); // 隐藏显示的元素，带有淡出的过渡动画效果</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 设置所有匹配元素的css样式&quot;width: 200px; height: 100px&quot;，并执行一个当前样式到指定样式的过渡动画效果</span><br><span class="line">// 动画的执行时间为 1000 毫秒</span><br><span class="line">$(&quot;selector&quot;).animate( &#123; width: &quot;200px&quot;, height: &quot;100px&quot; &#125;, 1000 );</span><br></pre></td></tr></table></figure>
 </span>
       
     </div>
@@ -268,7 +235,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/JQeury/" rel="tag">#JQeury</a>
+            <a href="/tags/jQeury/" rel="tag">#jQeury</a>
           
         </div>
       
@@ -277,13 +244,13 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/10/01/How-To-Use-BeanValidation/" rel="prev">How To Use BeanValidation</a>
+              <a href="/2015/10/01/How-To-Use-Git/" rel="prev">How To Use Git</a>
             
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/10/01/How-To-Use-Angular2/" rel="next">How To Use Angular2</a>
+              <a href="/2015/10/01/How-To-Use-BeanValidation/" rel="next">How To Use BeanValidation</a>
             
           </div>
         </div>
@@ -345,7 +312,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-count">12</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -359,7 +326,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-count">11</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
@@ -409,7 +376,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#How-to-Use-JQuery"><span class="nav-number">1.</span> <span class="nav-text">How to Use JQuery</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-jQuery的加载"><span class="nav-number">1.1.</span> <span class="nav-text">1. jQuery的加载</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#How-to-Use-jQuery"><span class="nav-number">1.</span> <span class="nav-text">How to Use jQuery</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#jQuery的加载"><span class="nav-number">1.1.</span> <span class="nav-text">jQuery的加载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jQuery基础"><span class="nav-number">1.2.</span> <span class="nav-text">jQuery基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#jQuery常用选择器"><span class="nav-number">1.2.1.</span> <span class="nav-text">jQuery常用选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jQuery元素帅选"><span class="nav-number">1.2.2.</span> <span class="nav-text">jQuery元素帅选</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jQuery核心：DOM操作"><span class="nav-number">1.2.3.</span> <span class="nav-text">jQuery核心：DOM操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文档处理"><span class="nav-number">1.2.4.</span> <span class="nav-text">文档处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS操作"><span class="nav-number">1.2.5.</span> <span class="nav-text">CSS操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动画效果"><span class="nav-number">1.2.6.</span> <span class="nav-text">动画效果</span></a></li></ol></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
